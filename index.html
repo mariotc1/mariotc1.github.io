@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario Tomé Core - Portafolio</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container navbar-content">
+      
+      <div class="profile-wrapper">
+        <a href="#" id="scrollTopBtn">
+          <img src="images/yo.jpeg" alt="Foto de Mario Tomé" class="profile-pic">
+        </a>
+        <h1 class="logo">Mario Tomé Core</h1>
+      </div>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">Sobre mí</a></li>
+          <li><a href="#skills">Habilidades</a></li>
+          <li><a href="#projects">Proyectos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>  
+
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-down">
+    <div class="container">
+      <h2>"Si lo puedes pensar, lo puedes programar"</h2>
+      <p>Desarrollador de software | Freelancer | Automatizaciones</p>
+      <div class="hero-buttons">
+        <a href="https://github.com/mariotc1" target="_blank" class="btn">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/mario-tom%C3%A9-core-114551343/" target="_blank" class="btn">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="#contact" class="btn">
+          <i class="fas fa-envelope"></i> Contáctame
+        </a>
+      </div>      
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section" data-aos="fade-up">
+    <div class="container about-container">
+      
+      <div class="about-text">
+        <h2>Sobre mí</h2>
+        <p class="intro">Soy <strong>Mario Tomé</strong>, desarrollador especializado en aplicaciones multiplataforma con una pasión enorme por crear soluciones útiles y elegantes.</p>
+        
+        <div class="about-details">
+          <div class="about-item">
+            <i class="fas fa-graduation-cap"></i>
+            <p>He completado el <strong>Grado Superior de Desarrollo de Aplicaciones Multiplataforma</strong> donde descubrí lo que realmente me apasiona: desarrollar software, gestionar bases de datos y crear interfaces funcionales.</p>
+          </div>
+  
+          <div class="about-item">
+            <i class="fas fa-code"></i>
+            <p>Desde siempre me ha encantado la informática. Me emociona la idea de crear algo desde cero, resolver problemas reales y estar en constante aprendizaje. <em>¡Reciclarme es parte de mi filosofía!</em></p>
+          </div>
+  
+          <div class="about-item">
+            <i class="fas fa-briefcase"></i>
+            <p>Actualmente trabajo como <strong>freelancer en DB Inmuebles</strong>, desarrollando soluciones reales para clientes. Aunque me gusta el mundo freelance, mi objetivo es crecer dentro de una empresa que me permita aportar, mejorar y evolucionar.</p>
+          </div>
+        </div>
+  
+        <a href="#contact" class="btn btn-contact"><i class="fas fa-envelope"></i> Escríbeme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section" data-aos="fade-right">
+    <div class="container">
+      <h2>Habilidades</h2>
+      <p class="skills-intro">
+        A lo largo de mi formación y experiencia como desarrollador, he adquirido un conjunto de habilidades técnicas que me permiten construir soluciones completas y eficientes. Aquí te muestro cómo se organizan:
+      </p>
+  
+      <div class="skills-category">
+        <h3><i class="fas fa-code"></i> Frontend</h3>
+        <div class="skills-grid">
+          <div class="skill"><i class="fab fa-html5"></i> HTML</div>
+          <div class="skill"><i class="fab fa-css3-alt"></i> CSS</div>
+          <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
+          <div class="skill"><i class="fas fa-desktop"></i> PyQt5</div>
+        </div>
+      </div>
+  
+      <div class="skills-category">
+        <h3><i class="fas fa-server"></i> Backend</h3>
+        <div class="skills-grid">
+          <div class="skill"><i class="fab fa-java"></i> Java</div>
+          <div class="skill"><i class="fab fa-python"></i> Python</div>
+          <div class="skill"><i class="fas fa-database"></i> SQL</div>
+          <div class="skill"><i class="fas fa-leaf"></i> Spring Boot</div>
+          <div class="skill"><i class="fas fa-fire"></i> Flask</div>
+          <div class="skill"><i class="fas fa-code"></i> C</div>
+        </div>
+      </div>
+  
+      <div class="skills-category">
+        <h3><i class="fas fa-tools"></i> Control de versiones & Otros</h3>
+        <div class="skills-grid">
+          <div class="skill"><i class="fab fa-git-alt"></i> Git</div>
+          <div class="skill"><i class="fas fa-project-diagram"></i> UML</div>
+          <div class="skill"><i class="fas fa-terminal"></i> Automatización</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="section" data-aos="fade-left">
+    <div class="container">
+      <h2>Proyectos Destacados</h2>
+      <div class="projects-grid">
+  
+        <!-- Proyecto 1 -->
+        <a href="https://github.com/mariotc1/AppStockDB-" target="_blank" class="project-card">
+          <img src="images/stock.png" alt="Gestión de Stock">
+          <div class="project-content">
+            <h3>Gestión de Stock</h3>
+            <p>Aplicación con Flask y PyQt5: CRUD completo, filtros, exportación a Excel, historial y más.</p>
+          </div>
+        </a>
+  
+        <!-- Proyecto 2 -->
+        <a href="https://github.com/mariotc1/CRM_Python" target="_blank" class="project-card">
+          <img src="images/crm.png" alt="CRM con Python">
+          <div class="project-content">
+            <h3>CRM con PyQt5</h3>
+            <p>Sistema CRM a medida para gestión de clientes y automatización de tareas.</p>
+          </div>
+        </a>
+  
+        <!-- Proyecto 3 -->
+        <a href="https://github.com/mariotc1/appTaller" target="_blank" class="project-card">
+          <img src="images/app.png" alt="App Taller Android">
+          <div class="project-content">
+            <h3>App Android Taller</h3>
+            <p>Aplicación móvil para talleres mecánicos: gestión de trabajos, clientes y tiempos.</p>
+          </div>
+        </a>
+  
+      </div>
+    </div>
+  </section>  
+
+  <!-- Contact Section -->
+  <section id="contact" class="section" data-aos="zoom-in">
+    <div class="container contact-container">
+      <h2>Contacto</h2>
+      <p class="contact-intro">¿Quieres trabajar conmigo o tienes un proyecto en mente? <strong>¡Escríbeme!</strong></p>
+  
+      <div class="contact-cards">
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <p><a href="mailto:mariotomecore@gmail.com">mariotomecore@gmail.com</a></p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-phone-alt"></i>
+          <p><a href="tel:644071074">644 07 10 74</a></p>
+        </div>
+        <div class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <p><a href="https://www.linkedin.com/in/mario-tom%C3%A9-core-114551343/" target="_blank">LinkedIn</a></p>
+        </div>
+      </div>
+  
+      <a href="mailto:mariotomecore@gmail.com" class="btn btn-contact-me"><i class="fas fa-paper-plane"></i> Enviarme un mensaje</a>
+    </div>
+  </section>  
+
+  <!-- Footer -->
+  <footer class="footer" data-aos="fade-up">
+    <div class="container footer-container">
+      <p>© 2025 <strong>Mario Tomé Core</strong></p>
+      <div class="footer-links">
+        <a href="mailto:mariotomecore@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/mariotc1" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/mario-tom%C3%A9-core-114551343/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>  
+
+  <!-- Vanilla Tilt JS -->
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+<script>
+  VanillaTilt.init(document.querySelectorAll(".project-card"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.3,
+  });
+</script>
+
+<!-- AOS Animation JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,  // Tiempo que dura cada animación
+    once: true       // Solo animar una vez al bajar
+  });
+</script>
+
+<script>
+  document.getElementById('scrollTopBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
+</body>
+</html>
