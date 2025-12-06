@@ -73,8 +73,8 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <header className="relative h-screen flex items-center justify-center overflow-hidden">
+       {/* Hero Section - Updated height for mobile */}
+      <header className="relative h-[100dvh] flex items-center justify-center overflow-hidden">
         <Hero3D onScrollClick={() => scrollToSection('about')} />
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">

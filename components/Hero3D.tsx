@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, Float } from '@react-three/drei';
 import * as THREE from 'three';
@@ -6,9 +6,20 @@ import * as THREE from 'three';
 const ParticleSphere = (props: any) => {
   const ref = useRef<THREE.Points>(null!);
   
-  // Generate random points in a sphere
+  // Detect mobile to reduce particle count
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Optimization: Reduce count on mobile to prevent lag
+  const count = isMobile ? 800 : 3000;
+  
   const [positions, colors] = useMemo(() => {
-    const count = 3000;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
     const color = new THREE.Color();
@@ -33,7 +44,7 @@ const ParticleSphere = (props: any) => {
       colors[i * 3 + 2] = mixedColor.b;
     }
     return [positions, colors];
-  }, []);
+  }, [count]);
 
   useFrame((state, delta) => {
     if (ref.current) {
@@ -52,7 +63,7 @@ const ParticleSphere = (props: any) => {
         <PointMaterial
           transparent
           vertexColors
-          size={0.02}
+          size={isMobile ? 0.035 : 0.02} // Slightly larger particles on mobile for visibility
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -68,7 +79,17 @@ interface Hero3DProps {
 const Hero3D: React.FC<Hero3DProps> = ({ onScrollClick }) => {
   return (
     <div className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-b from-brand-dark to-slate-900 overflow-hidden">
-      <Canvas camera={{ position: [0, 0, 3.5] }}>
+      {/* 
+        CRITICAL OPTIMIZATION: 
+        dpr={[1, 2]} clamps the pixel ratio. 
+        Mobile phones often have dpr=3 or 4, which kills performance on full-screen WebGL.
+        Limiting to 2 keeps it sharp but performant.
+      */}
+      <Canvas 
+        camera={{ position: [0, 0, 3.5] }} 
+        dpr={[1, 2]} 
+        gl={{ antialias: true, powerPreference: "high-performance" }}
+      >
         <ambientLight intensity={0.5} />
         <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
            <ParticleSphere />
