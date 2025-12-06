@@ -193,11 +193,43 @@ function App() {
                   </div>
                   
                   {/* Skill Icons from User Readme */}
-                  <div className="space-y-4">
-                     <p className="text-sm text-slate-400 font-medium">Lenguajes & Herramientas</p>
-                     <img src="https://skillicons.dev/icons?i=python,java,js,php,dart,swift&theme=dark" alt="Languages" className="w-full" />
-                     <img src="https://skillicons.dev/icons?i=html,css,react,flutter,androidstudio,flask&theme=dark" alt="Frontend" className="w-full" />
-                     <img src="https://skillicons.dev/icons?i=mysql,sqlite,supabase,git,github,figma&theme=dark" alt="Tools" className="w-full" />
+                  <div className="space-y-6">
+                     <div>
+                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Lenguajes de Programación</p>
+                       <div className="flex flex-wrap gap-3 justify-start">
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" className="w-10 h-10" />
+                       </div>
+                     </div>
+                     
+                     <div>
+                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Frontend & Mobile</p>
+                       <div className="flex flex-wrap gap-3 justify-start">
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" className="w-10 h-10" />
+                       </div>
+                     </div>
+                     
+                     <div>
+                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Backend & Herramientas</p>
+                       <div className="flex flex-wrap gap-3 justify-start">
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" alt="Flask" className="w-10 h-10 brightness-0 invert" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" alt="Supabase" className="w-10 h-10" />
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-10 h-10" />
+                         <div className="w-10 h-10 bg-white rounded-lg p-1.5 flex items-center justify-center">
+                           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="w-full h-full" />
+                         </div>
+                       </div>
+                     </div>
                   </div>
                 </div>
              </div>

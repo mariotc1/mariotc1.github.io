@@ -9,13 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.2.1",
-    "@react-three/fiber": "^9.4.2",
+    "@fdorantesm/react-skill-icons": "^1.0.7",
     "@react-three/drei": "^10.7.7",
-    "three": "^0.181.2",
+    "@react-three/fiber": "^9.4.2",
     "framer-motion": "^12.23.25",
     "lucide-react": "^0.556.0",
-    "react-dom": "^19.2.1"
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-skillicons": "^1.0.2",
+    "three": "^0.181.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
