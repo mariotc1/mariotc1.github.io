@@ -2,134 +2,53 @@ import { Project } from './types';
 
 export const USER_INFO = {
   name: "Mario Tomé Core",
-  role: "Desarrollador Full Stack · Especialidad Python",
-  subheading: "Construyo productos con código limpio, producto mínimo viable y diseño enfocado en la experiencia.",
-  bio: "Soy Mario Tomé Core, desarrollador Full Stack con formación técnica superior en Desarrollo de Aplicaciones Multiplataforma (DAM) y actualmente finalizando Desarrollo de Aplicaciones Web (DAW). He construido aplicaciones reales en entornos de escritorio, web y móvil, trabajando todo el ciclo de desarrollo: arquitectura, lógica, persistencia de datos, interfaz y despliegue. Me caracterizo por una fuerte disciplina, mentalidad profesional desde el primer día y obsesión por el clean code, la claridad y la mantenibilidad. Busco incorporarme a un equipo donde aportar valor real como desarrollador junior, seguir creciendo técnicamente y asumir responsabilidades desde el primer momento.",
-  pitch: "Tengo experiencia práctica construyendo y desplegando aplicaciones completas, trabajando con bases de datos, APIs REST, control de versiones y flujos de desarrollo profesionales. Me adapto rápido a nuevos equipos y tecnologías y afronto cada proyecto con mentalidad de responsabilidad, no de estudiante.",
+  role: "Junior Full Stack Developer",
+  subheading: "Transformando ideas complejas en productos digitales de alto impacto. Código limpio, arquitectura escalable y diseño futurista.",
+  bio: "Soy un desarrollador obsesionado con la calidad del software y la experiencia de usuario. No solo escribo código; diseño soluciones que escalan. Mi enfoque combina la robustez de la ingeniería de backend con la finura visual del frontend moderno. Busco un equipo donde la excelencia sea el estándar, no la excepción.",
+  pitch: "No busco solo un empleo, busco un desafío donde pueda desplegar todo mi potencial técnico y creativo.",
   email: "mariotomecore@gmail.com",
-  linkedin: "https://www.linkedin.com/in/mario-tomé-core-114551343/",
-  github: "https://github.com/mariotc1"
+  github: "https://github.com/mariotc1",
+  linkedin: "https://www.linkedin.com/in/mariotomecore/",
+  cv: "/assets/Mario-Tome-Core-cv.pdf"
 };
 
 export const PROJECTS: Project[] = [
+  {
+    slug: "edufinder-cyl",
+    title: "Edufinder CyL",
+    image: "/assets/edufinder.png",
+    repo: "https://github.com/mariotc1/edufinder-cyl.git",
+    demo: "https://edufinder-cyl.vercel.app",
+    tech: ["Next.js", "Laravel", "PostgreSQL", "Docker", "Leaflet"],
+    status: "TFG - Excelencia",
+    private: false,
+    short: "Plataforma premiada para la centralización de oferta educativa y búsqueda de centros en Castilla y León.",
+    description: "Desarrollo Full Stack integral. Backend robusto en Laravel sirviendo una API RESTful a un frontend moderno en Next.js. Sistema de geolocalización avanzado con Leaflet para mapear centros educativos y ofertas de FP en tiempo real."
+  },
+  {
+    slug: "the-simpsons",
+    title: "The Simpsons Pearl",
+    image: "/assets/the-simpsons.jpeg",
+    repo: "https://github.com/mariotc1/proyecto-ut6-the-simpsons.git",
+    demo: "https://the-simpsons-pearl.vercel.app",
+    tech: ["Next.js", "React", "API Integration", "Tailwind"],
+    status: "Featured",
+    private: false,
+    short: "Experiencia interactiva consumiendo la API de Los Simpsons.",
+    description: "Aplicación SPA de alto rendimiento que explora el universo de Los Simpsons. Diseño meticuloso, navegación fluida y consumo eficiente de API externa. Incluye modo Quiz y enciclopedia de personajes."
+  },
   {
     slug: "pomodoroapp",
     title: "PomodoroApp",
     image: "/assets/pomodoroapp.png",
     repo: "https://github.com/mariotc1/PomodoroApp",
     tech: ["Swift", "iOS", "Firebase"],
-    status: "Destacado",
+    status: "Mobile",
     private: false,
-    short: "Aplicación móvil para gestión de productividad tipo Pomodoro.",
-    description: "Una solución para la gestión del tiempo. Incluye bloqueo de aplicaciones, estadísticas de productividad y personalización de temporizadores."
-  },
-  {
-    slug: "pomodoro-landing",
-    title: "pomodoro-landing",
-    image: "/assets/pomodoro-landing.png",
-    repo: "https://github.com/mariotc1/pomodoro-landing",
-    demo: "https://pomodoroproapp.site",
-    tech: ["HTML", "CSS", "JS"],
-    status: "Proyecto",
-    private: false,
-    short: "Landing page optimizada para la conversión y descarga de la app.",
-    description: "Sitio web de marketing diseñado para mostrar las características de la aplicación Pomodoro, con un enfoque en SEO y performance."
-  },
-  {
-    slug: "fantasyhelper",
-    title: "fantasyHelper",
-    image: "/assets/fantasy-helper.png",
-    repo: "https://github.com/mariotc1/fantasyHelper",
-    demo: "https://xi-fantasy.streamlit.app",
-    tech: ["Python", "Web Scraping", "Pandas"],
-    status: "Destacado",
-    private: false,
-    short: "Asistente que crea alineaciones usando scraping de datos públicos.",
-    description: "Herramienta automatizada que extrae estadísticas de jugadores de diversas fuentes web para recomendar alineaciones óptimas en ligas fantasy."
-  },
-  {
-    slug: "crm_python",
-    title: "CRM_Python",
-    image: "/assets/crm.png",
-    repo: "https://github.com/mariotc1/CRM_Python",
-    tech: ["Python", "PyQt5", "SQLite"],
-    status: "Destacado",
-    private: false,
-    short: "CRM de escritorio desarrollado en CFGS DAM.",
-    description: "Aplicación de escritorio robusta para gestión de clientes, facturación y seguimiento de ventas, implementando patrón MVC."
-  },
-  {
-    slug: "appstockdb",
-    title: "AppStockDB-",
-    image: "/assets/aplicación-stckdb.png",
-    repo: "https://github.com/mariotc1/AppStockDB-",
-    tech: ["Python", "Flask", "PyQt5"],
-    status: "TFG",
-    private: false,
-    short: "Gestión de stock con API REST y cliente de escritorio.",
-    description: "Proyecto de fin de grado que integra un backend Flask RESTful con un cliente de escritorio PyQt5 para gestión de inventario en tiempo real."
-  },
-  {
-    slug: "capitalquiz",
-    title: "CapitalQuiz",
-    image: "/assets/capitalquiz.png",
-    repo: "https://github.com/mariotc1/CapitalQuiz",
-    tech: ["Android", "Java", "Room"],
-    status: "Proyecto",
-    private: false,
-    short: "Juego educativo Android nativo con base de datos local.",
-    description: "App Android nativa para aprender geografía. Utiliza Room para persistencia de datos y sigue las guías de Material Design."
+    short: "Productividad iOS nativa con sincronización en la nube.",
+    description: "Aplicación nativa para iOS construida con Swift. Implementa patrones de diseño MVVM, sincronización en tiempo real con Firebase y una interfaz de usuario pulida enfocada en la retención del usuario."
   }
 ];
 
-export const ACADEMIC_REPOS: Project[] = [
-  {
-    slug: "apptaller",
-    title: "appTaller",
-    repo: "https://github.com/mariotc1/appTaller",
-    tech: ["Java", "Swing", "MySQL"],
-    status: "Proyecto",
-    private: false,
-    short: "Gestión de taller mecánico (Java SE)."
-  },
-  {
-    slug: "dwes",
-    title: "Desarrollo Web Servidor",
-    repo: "https://github.com/mariotc1/desarrollo_web_entorno_servidor",
-    tech: ["PHP", "Laravel", "Docker"],
-    status: "Proyecto",
-    private: false,
-    short: "Prácticas de DWES (Backend)."
-  },
-  {
-    slug: "diw",
-    title: "Diseño Interfaces Web",
-    repo: "https://github.com/mariotc1/dessing_de_interfaces_web",
-    tech: ["HTML5", "CSS3", "JS"],
-    status: "Proyecto",
-    private: false,
-    short: "Prácticas de maquetación y UX."
-  },
-  {
-    slug: "deploy",
-    title: "Desarrollo Web Cliente",
-    repo: "https://github.com/mariotc1/desarrollo_web_entorno_cliente",
-    tech: ["JS", "HTML5", "CSS3"],
-    status: "Proyecto",
-    private: false,
-    short: "Prácticas de DWEC (Cliente)."
-  }
-];
-
-export const SKILLS = [
-  { name: "Python", level: "Avanzado" },
-  { name: "Java", level: "Intermedio" },
-  { name: "PHP", level: "Intermedio" },
-  { name: "JavaScript", level: "Intermedio" },
-  { name: "HTML/CSS", level: "Avanzado" },
-  { name: "Swift", level: "Básico" },
-  { name: "Flask", level: "Avanzado" },
-  { name: "MySQL", level: "Intermedio" },
-  { name: "SQLite", level: "Intermedio" },
-  { name: "Git", level: "Avanzado" },
-];
+export const ACADEMIC_REPOS: Project[] = []; // Cleared for "No Fluff" policy
+export const SKILLS: any[] = []; // Using minimal presentation in About instead
