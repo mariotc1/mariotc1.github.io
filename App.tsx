@@ -160,6 +160,7 @@ function App() {
                 <div className="flex flex-col gap-16 relative z-10">
                    
                    {/* Text Section */}
+                   {/* Text Section */}
                    <motion.div 
                      initial="hidden"
                      whileInView="visible"
@@ -173,7 +174,7 @@ function App() {
                       <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mb-10 border-b border-slate-700/50 pb-6">
                         <motion.h2 
                           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                          className="text-5xl md:text-6xl font-black text-white flex items-center gap-4"
+                          className="text-4xl md:text-5xl font-black text-white flex items-center gap-4"
                         >
                           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-brand-accent to-purple-600 drop-shadow-lg">Sobre mí</span>
                         </motion.h2>
@@ -190,35 +191,39 @@ function App() {
                         </motion.a>
                       </div>
                       
-                      <div className="prose prose-invert prose-2xl max-w-none text-slate-300 text-justify leading-relaxed">
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="mb-8">
+                      <div className="text-slate-300 text-justify leading-relaxed flex flex-col gap-6">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-xl md:text-2xl font-light">
                           Soy Mario Tomé, desarrollador <strong className="text-white font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">Full Stack</strong> con formación técnica superior en Desarrollo de Aplicaciones Multiplataforma <strong className="text-white">(DAM)</strong> y Desarrollo de Aplicaciones Web <strong className="text-white">(DAW)</strong>.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="mb-8">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
                           He construido aplicaciones reales en entornos de escritorio, web y móvil, trabajando todo el <strong className="text-white">ciclo de desarrollo:</strong> arquitectura, lógica, persistencia de datos, interfaz y despliegue.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="mb-8">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
                           Me caracterizo por una fuerte disciplina, mentalidad profesional desde el primer día y obsesión por el clean code, la claridad y la mantenibilidad.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
                           Busco incorporarme a un equipo donde aportar <strong className="text-white">valor real</strong> como desarrollador junior, seguir creciendo técnicamente y asumir responsabilidades desde el primer momento.
                         </motion.p>
                       </div>
                    </motion.div>
                    
                    {/* Tech Stack - Compact & Centered */}
-                   <div className="w-full">
-                     <h3 className="text-2xl font-bold text-white mb-8 border-b border-slate-700 pb-4 text-center">Stack Tecnológico</h3>
+                   <div className="w-full bg-slate-900/30 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/40 shadow-inner">
+                     <h3 className="text-2xl font-bold mb-8 text-center border-b border-gray-700/50 pb-4">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">
+                          Stack Tecnológico
+                        </span>
+                     </h3>
                      
                      <div className="flex flex-wrap gap-8 justify-center">
                        {SKILLS.map((category) => (
-                         <div key={category.title} className="flex flex-col items-center bg-slate-800/20 rounded-2xl p-6 border border-slate-700/30">
-                           <p className="text-sm text-slate-400 font-bold mb-4 uppercase tracking-wider">{category.title}</p>
+                         <div key={category.title} className="flex flex-col items-center bg-slate-800/40 rounded-2xl p-6 border border-slate-700/30 hover:border-slate-600/50 transition-colors duration-300">
+                           <p className="text-sm text-brand-accent/80 font-bold mb-4 uppercase tracking-widest">{category.title}</p>
                            <div className="flex flex-wrap gap-4 justify-center">
                              {category.skills.map((skill) => (
                                <div key={skill.name} className="group relative" title={skill.name}>
-                                  <div className="w-16 h-16 bg-slate-800/40 backdrop-blur-sm rounded-2xl p-3 border border-slate-700/50 hover:bg-slate-800 hover:border-brand-accent/50 transition-all flex items-center justify-center transform hover:scale-110 duration-300 shadow-lg hover:shadow-brand-accent/20 cursor-help">
-                                    <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain filter group-hover:brightness-110 transition-all drop-shadow-md" />
+                                  <div className="w-16 h-16 bg-slate-800/60 backdrop-blur-md rounded-2xl p-3 border border-slate-700/50 hover:bg-slate-700 hover:border-brand-accent/40 transition-all flex items-center justify-center transform hover:scale-110 duration-300 shadow-lg hover:shadow-brand-accent/10 cursor-help">
+                                    <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain filter group-hover:brightness-110 transition-all drop-shadow-md opacity-90 group-hover:opacity-100" />
                                   </div>
                                </div>
                              ))}
