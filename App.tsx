@@ -171,7 +171,7 @@ function App() {
                      }}
                      className="w-full"
                    >
-                      <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mb-10 border-b border-slate-700/50 pb-6">
+                      <div className="flex flex-row flex-wrap justify-between items-center gap-4 mb-10 border-b border-slate-700/50 pb-6">
                         <motion.h2 
                           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                           className="text-4xl md:text-5xl font-black text-white flex items-center gap-4"
@@ -209,24 +209,27 @@ function App() {
                    
                    {/* Tech Stack - Compact & Centered */}
                    {/* Tech Stack - Compact & Centered */}
-                   <div className="w-full bg-slate-900/30 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/40 shadow-inner">
-                     <h3 className="text-2xl font-bold mb-8 text-center border-b border-gray-700/50 pb-4">
+                   {/* Tech Stack - Compact & Centered */}
+                   {/* Tech Stack - Compact & Centered */}
+                   <div className="w-full bg-slate-900/30 backdrop-blur-sm rounded-3xl p-4 md:p-8 border border-slate-700/40 shadow-inner">
+                     <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center border-b border-gray-700/50 pb-4">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">
                           Stack Tecnológico
                         </span>
                      </h3>
                      
-                     <div className="flex flex-wrap gap-8 justify-center">
+                     {/* Flex with specific widths for mobile 2-col + centered orphan */}
+                     <div className="flex flex-wrap justify-center gap-3 md:gap-8">
                        {SKILLS.map((category) => (
                          <div 
                            key={category.title} 
-                           className="flex flex-col items-center bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-2xl p-6 border border-slate-700/60 shadow-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-brand-accent/40 transition-all duration-500 group/card"
+                           className="w-[calc(50%-0.5rem)] md:w-auto flex flex-col items-center bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-xl md:rounded-2xl p-3 md:p-6 border border-slate-700/60 shadow-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-brand-accent/40 transition-all duration-500 group/card"
                          >
-                           <p className="text-sm text-brand-accent/90 font-bold mb-5 uppercase tracking-widest text-shadow-sm">{category.title}</p>
-                           <div className="flex flex-wrap gap-4 justify-center">
+                           <p className="text-[10px] md:text-sm text-brand-accent/90 font-bold mb-2 md:mb-5 uppercase tracking-widest text-shadow-sm text-center">{category.title}</p>
+                           <div className="flex flex-wrap gap-2 md:gap-4 justify-center">
                              {category.skills.map((skill) => (
                                <div key={skill.name} className="group relative" title={skill.name}>
-                                  <div className="w-16 h-16 bg-slate-800/80 backdrop-blur-sm rounded-2xl p-3 border border-slate-700/50 hover:bg-slate-700 group-hover/card:border-slate-600/50 transition-all flex items-center justify-center transform hover:scale-110 duration-300 shadow-md hover:shadow-brand-accent/20 cursor-help relative overflow-hidden">
+                                  <div className="w-10 h-10 md:w-16 md:h-16 bg-slate-800/80 backdrop-blur-sm rounded-lg md:rounded-2xl p-1.5 md:p-3 border border-slate-700/50 hover:bg-slate-700 group-hover/card:border-slate-600/50 transition-all flex items-center justify-center transform hover:scale-110 duration-300 shadow-md hover:shadow-brand-accent/20 cursor-help relative overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain filter group-hover:brightness-110 transition-all drop-shadow-md opacity-90 group-hover:opacity-100 relative z-10" />
                                   </div>
