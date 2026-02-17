@@ -1,4 +1,4 @@
-import { Project } from './types';
+import { Project, SkillCategory } from './types';
 
 export const USER_INFO = {
   name: "Mario Tomé Core",
@@ -13,72 +13,74 @@ export const USER_INFO = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "edufinder-cyl",
+    title: "EduFinder-CyL",
+    image: "/assets/edufinder-cyl.png",
+    repo: "https://github.com/mariotc1/edufinder-cyl",
+    demo: "https://edufinder-cyl.vercel.app/",
+    tech: ["Next.js", "TypeScript", "Laravel", "Docker"],
+    status: "Destacado",
+    private: false,
+    short: "Plataforma Full Stack para centralizar la búsqueda de centros educativos en Castilla y León.",
+    description: "Plataforma Full Stack para centralizar la búsqueda de centros educativos en Castilla y León."
+  },
+  {
+    slug: "fantasyhelper",
+    title: "FantasyHelper",
+    image: "/assets/fantasy-helper.png",
+    repo: "https://github.com/mariotc1/fantasyHelper",
+    demo: "https://xi-fantasy.streamlit.app/",
+    tech: ["Python", "Streamlit"],
+    status: "Destacado",
+    private: false,
+    short: "Aplicación de análisis de datos para optimizar alineaciones fantasy mediante scraping.",
+    description: "Aplicación de análisis de datos para optimizar alineaciones fantasy mediante scraping."
+  },
+  {
     slug: "pomodoroapp",
     title: "PomodoroApp",
     image: "/assets/pomodoroapp.png",
     repo: "https://github.com/mariotc1/PomodoroApp",
-    tech: ["Swift", "iOS", "Firebase"],
+    tech: ["Swift"],
     status: "Destacado",
     private: false,
-    short: "Aplicación móvil para gestión de productividad tipo Pomodoro.",
-    description: "Una solución para la gestión del tiempo. Incluye bloqueo de aplicaciones, estadísticas de productividad y personalización de temporizadores."
+    short: "App iOS que educa el uso intencional del móvil mediante sesiones inteligentes y gamificación.",
+    description: "App iOS que educa el uso intencional del móvil mediante sesiones inteligentes y gamificación."
   },
   {
     slug: "pomodoro-landing",
-    title: "pomodoro-landing",
+    title: "Pomodoro Landing",
     image: "/assets/pomodoro-landing.png",
     repo: "https://github.com/mariotc1/pomodoro-landing",
-    demo: "https://pomodoroproapp.site",
-    tech: ["HTML", "CSS", "JS"],
-    status: "Proyecto",
-    private: false,
-    short: "Landing page optimizada para la conversión y descarga de la app.",
-    description: "Sitio web de marketing diseñado para mostrar las características de la aplicación Pomodoro, con un enfoque en SEO y performance."
-  },
-  {
-    slug: "fantasyhelper",
-    title: "fantasyHelper",
-    image: "/assets/fantasy-helper.png",
-    repo: "https://github.com/mariotc1/fantasyHelper",
-    demo: "https://xi-fantasy.streamlit.app",
-    tech: ["Python", "Web Scraping", "Pandas"],
+    demo: "https://pomodoro-landing.vercel.app/",
+    tech: ["HTML", "CSS", "JavaScript"],
     status: "Destacado",
     private: false,
-    short: "Asistente que crea alineaciones usando scraping de datos públicos.",
-    description: "Herramienta automatizada que extrae estadísticas de jugadores de diversas fuentes web para recomendar alineaciones óptimas en ligas fantasy."
+    short: "Landing estratégica conectada a MailerLite para captación de beta testers.",
+    description: "Landing estratégica conectada a MailerLite para captación de beta testers."
   },
   {
-    slug: "crm_python",
-    title: "CRM_Python",
-    image: "/assets/crm.png",
-    repo: "https://github.com/mariotc1/CRM_Python",
-    tech: ["Python", "PyQt5", "SQLite"],
+    slug: "the-simpsons-explorer",
+    title: "The Simpsons Explorer",
+    image: "/assets/the-simpsons.jpeg",
+    repo: "https://github.com/mariotc1/proyecto-ut6-the-simpsons",
+    demo: "https://the-simpsons-pearl.vercel.app/",
+    tech: ["Next.js", "React"],
     status: "Destacado",
     private: false,
-    short: "CRM de escritorio desarrollado en CFGS DAM.",
-    description: "Aplicación de escritorio robusta para gestión de clientes, facturación y seguimiento de ventas, implementando patrón MVC."
+    short: "Aplicación interactiva que explota la API oficial de Los Simpsons con estadísticas y quiz.",
+    description: "Aplicación interactiva que explota la API oficial de Los Simpsons con estadísticas y quiz."
   },
   {
     slug: "appstockdb",
-    title: "AppStockDB-",
+    title: "AppStockDB",
     image: "/assets/aplicación-stckdb.png",
     repo: "https://github.com/mariotc1/AppStockDB-",
-    tech: ["Python", "Flask", "PyQt5"],
-    status: "TFG",
+    tech: ["Python", "PyQt5", "Flask"],
+    status: "Destacado",
     private: false,
-    short: "Gestión de stock con API REST y cliente de escritorio.",
-    description: "Proyecto de fin de grado que integra un backend Flask RESTful con un cliente de escritorio PyQt5 para gestión de inventario en tiempo real."
-  },
-  {
-    slug: "capitalquiz",
-    title: "CapitalQuiz",
-    image: "/assets/capitalquiz.png",
-    repo: "https://github.com/mariotc1/CapitalQuiz",
-    tech: ["Android", "Java", "Room"],
-    status: "Proyecto",
-    private: false,
-    short: "Juego educativo Android nativo con base de datos local.",
-    description: "App Android nativa para aprender geografía. Utiliza Room para persistencia de datos y sigue las guías de Material Design."
+    short: "Aplicación de escritorio con API para gestión inmobiliaria.",
+    description: "Aplicación de escritorio con API para gestión inmobiliaria."
   }
 ];
 
@@ -121,15 +123,51 @@ export const ACADEMIC_REPOS: Project[] = [
   }
 ];
 
-export const SKILLS = [
-  { name: "Python", level: "Avanzado" },
-  { name: "Java", level: "Intermedio" },
-  { name: "PHP", level: "Intermedio" },
-  { name: "JavaScript", level: "Intermedio" },
-  { name: "HTML/CSS", level: "Avanzado" },
-  { name: "Swift", level: "Básico" },
-  { name: "Flask", level: "Avanzado" },
-  { name: "MySQL", level: "Intermedio" },
-  { name: "SQLite", level: "Intermedio" },
-  { name: "Git", level: "Avanzado" },
+export const SKILLS: SkillCategory[] = [
+  {
+    title: "Frontend",
+    skills: [
+      { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" }
+    ]
+  },
+  {
+    title: "Backend",
+    skills: [
+      { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+      { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" },
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" }
+    ]
+  },
+  {
+    title: "Mobile",
+    skills: [
+      { name: "Swift", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" },
+      { name: "Dart", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
+      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" }
+    ]
+  },
+  {
+    title: "Desktop",
+    skills: [
+      { name: "PyQt5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg" },
+      { name: "Streamlit", icon: "https://streamlit.io/images/brand/streamlit-mark-color.png" }
+    ]
+  },
+  {
+    title: "DevOps & Tools",
+    skills: [
+      { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Vercel", icon: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" },
+      { name: "Render", icon: "https://asset.brandfetch.io/idEe_atWjF/idb3aj35-5.png" }
+    ]
+  }
 ];

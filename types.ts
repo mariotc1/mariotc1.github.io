@@ -18,3 +18,11 @@ export interface StatCardProps {
   value: string;
   icon: React.ReactNode;
 }
+
+export interface SkillCategory {
+  title: string;
+  skills: {
+    name: string;
+    icon: string;
+  }[];
+}

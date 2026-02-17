@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import Hero3D from './components/Hero3D';
 import ProjectCard from './components/ProjectCard';
-import StatsPanel from './components/StatsPanel';
+
 import { PROJECTS, ACADEMIC_REPOS, SKILLS, USER_INFO } from './constants';
 
 function App() {
@@ -180,57 +180,28 @@ function App() {
                    </div>
                 </div>
                 
-                {/* Skills Grid */}
-                <div className="w-full lg:w-1/3">
+                {/* Skills Grid - New Structure */}
+                <div className="w-full lg:w-1/3 space-y-8">
                   <h3 className="text-xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Stack Tecnológico</h3>
-                  <div className="grid grid-cols-2 gap-3 mb-8">
-                    {SKILLS.map((skill) => (
-                      <div key={skill.name} className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3 text-center hover:bg-slate-800 hover:border-brand-accent/50 transition-all cursor-default group">
-                        <span className="block text-slate-200 font-semibold group-hover:text-brand-accent transition-colors">{skill.name}</span>
-                        <span className="block text-xs text-slate-500 mt-1 uppercase tracking-wider">{skill.level}</span>
-                      </div>
-                    ))}
-                  </div>
                   
-                  {/* Skill Icons from User Readme */}
-                  <div className="space-y-6">
-                     <div>
-                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Lenguajes de Programación</p>
-                       <div className="flex flex-wrap gap-3 justify-start">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" className="w-10 h-10" />
-                       </div>
-                     </div>
-                     
-                     <div>
-                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Frontend & Mobile</p>
-                       <div className="flex flex-wrap gap-3 justify-start">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" className="w-10 h-10" />
-                       </div>
-                     </div>
-                     
-                     <div>
-                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Backend & Herramientas</p>
-                       <div className="flex flex-wrap gap-3 justify-start">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" alt="Flask" className="w-10 h-10 brightness-0 invert" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" alt="Supabase" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-10 h-10" />
-                         <div className="w-10 h-10 bg-white rounded-lg p-1.5 flex items-center justify-center">
-                           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="w-full h-full" />
-                         </div>
-                       </div>
-                     </div>
-                  </div>
+                  {SKILLS.map((category) => (
+                    <div key={category.title}>
+                      <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">{category.title}</p>
+                      <div className="flex flex-wrap gap-3 justify-start">
+                        {category.skills.map((skill) => (
+                          <div key={skill.name} className="group relative" title={skill.name}>
+                             <div className="w-12 h-12 bg-slate-800/50 rounded-xl p-2.5 border border-slate-700/50 hover:bg-slate-800 hover:border-brand-accent/50 transition-all flex items-center justify-center">
+                               <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain filter group-hover:brightness-110 transition-all" />
+                             </div>
+                             {/* Tooltip */}
+                             <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-slate-700">
+                               {skill.name}
+                             </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
              </div>
           </div>
@@ -297,17 +268,6 @@ function App() {
                </a>
              ))}
            </div>
-        </section>
-
-        {/* GitHub Activity */}
-        <section className="scroll-mt-32 max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-10 border-b border-slate-800 pb-4">
-             <h2 className="text-3xl font-bold text-white">Actividad en GitHub</h2>
-             <a href={USER_INFO.github} target="_blank" rel="noreferrer" className="text-brand-accent hover:text-white text-sm font-semibold flex items-center gap-1 transition-colors">
-               Ver perfil completo <ExternalLink size={14} />
-             </a>
-          </div>
-          <StatsPanel />
         </section>
 
         {/* Contact Section */}
