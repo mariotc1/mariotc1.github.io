@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import Hero3D from './components/Hero3D';
 import ProjectCard from './components/ProjectCard';
-import StatsPanel from './components/StatsPanel';
+
 import { PROJECTS, ACADEMIC_REPOS, SKILLS, USER_INFO } from './constants';
 
 function App() {
@@ -156,84 +156,93 @@ function App() {
              {/* Decorative gradient orb inside card */}
              <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-accent/20 rounded-full blur-[80px] group-hover:bg-brand-accent/30 transition-colors duration-700"></div>
 
-             <div className="flex flex-col lg:flex-row gap-12 items-start relative z-10">
-                <div className="flex-1 space-y-8">
-                   <h2 className="text-4xl font-bold text-white flex items-center gap-3">
-                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-500">Sobre mí</span>
-                   </h2>
-                   <div className="prose prose-invert prose-lg max-w-none">
-                     <p className="text-slate-300 leading-relaxed text-lg">
-                       {USER_INFO.bio}
-                     </p>
-                     <div className="bg-slate-800/50 border-l-4 border-brand-accent p-6 rounded-r-xl mt-8">
-                       <p className="text-white font-medium italic text-lg">
-                         "{USER_INFO.pitch}"
-                       </p>
-                     </div>
-                   </div>
+                {/* Vertical Layout: Text Top, Stack Bottom */}
+                <div className="flex flex-col gap-16 relative z-10">
                    
-                   <div className="pt-4">
-                     <a href="/assets/Mario-Tome-Core-cv.pdf" download className="inline-flex items-center gap-3 bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-xl transition-all border border-slate-700 hover:border-brand-accent group">
-                       <Download size={20} className="group-hover:-translate-y-1 transition-transform" /> 
-                       <span className="font-semibold">Descargar Curriculum</span>
-                     </a>
-                   </div>
-                </div>
-                
-                {/* Skills Grid */}
-                <div className="w-full lg:w-1/3">
-                  <h3 className="text-xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Stack Tecnológico</h3>
-                  <div className="grid grid-cols-2 gap-3 mb-8">
-                    {SKILLS.map((skill) => (
-                      <div key={skill.name} className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3 text-center hover:bg-slate-800 hover:border-brand-accent/50 transition-all cursor-default group">
-                        <span className="block text-slate-200 font-semibold group-hover:text-brand-accent transition-colors">{skill.name}</span>
-                        <span className="block text-xs text-slate-500 mt-1 uppercase tracking-wider">{skill.level}</span>
+                   {/* Text Section */}
+                   {/* Text Section */}
+                   <motion.div 
+                     initial="hidden"
+                     whileInView="visible"
+                     viewport={{ once: true, margin: "-100px" }}
+                     variants={{
+                       hidden: { opacity: 0 },
+                       visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+                     }}
+                     className="w-full"
+                   >
+                      <div className="flex flex-row flex-wrap justify-between items-center gap-4 mb-10 border-b border-slate-700/50 pb-6">
+                        <motion.h2 
+                          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                          className="text-4xl md:text-5xl font-black text-white flex items-center gap-4"
+                        >
+                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-brand-accent to-purple-600 drop-shadow-lg">Sobre mí</span>
+                        </motion.h2>
+
+                        {/* Integrated Compact Button */}
+                        <motion.a 
+                          variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }}
+                          href="/assets/Mario-Tome-Core-cv.pdf" 
+                          download 
+                          className="flex items-center gap-2 px-5 py-2.5 bg-slate-800/50 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg border border-slate-700 hover:border-brand-accent transition-all duration-300 group text-sm font-medium backdrop-blur-sm"
+                        >
+                          <Download size={16} className="group-hover:text-brand-accent transition-colors" /> 
+                          <span>Descargar CV</span>
+                        </motion.a>
                       </div>
-                    ))}
-                  </div>
-                  
-                  {/* Skill Icons from User Readme */}
-                  <div className="space-y-6">
-                     <div>
-                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Lenguajes de Programación</p>
-                       <div className="flex flex-wrap gap-3 justify-start">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" className="w-10 h-10" />
-                       </div>
-                     </div>
+                      
+                      <div className="text-slate-300 text-justify leading-relaxed flex flex-col gap-6">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-xl md:text-2xl font-light">
+                          Soy Mario Tomé, desarrollador <strong className="text-white font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">Full Stack</strong> con formación técnica superior en Desarrollo de Aplicaciones Multiplataforma <strong className="text-white">(DAM)</strong> y Desarrollo de Aplicaciones Web <strong className="text-white">(DAW)</strong>.
+                        </motion.p>
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                          He construido aplicaciones reales en entornos de escritorio, web y móvil, trabajando todo el <strong className="text-white">ciclo de desarrollo:</strong> arquitectura, lógica, persistencia de datos, interfaz y despliegue.
+                        </motion.p>
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                          Me caracterizo por una fuerte disciplina, mentalidad profesional desde el primer día y obsesión por el clean code, la claridad y la mantenibilidad.
+                        </motion.p>
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                          Busco incorporarme a un equipo donde aportar <strong className="text-white">valor real</strong> como desarrollador junior, seguir creciendo técnicamente y asumir responsabilidades desde el primer momento.
+                        </motion.p>
+                      </div>
+                   </motion.div>
+                   
+                   {/* Tech Stack - Compact & Centered */}
+                   {/* Tech Stack - Compact & Centered */}
+                   {/* Tech Stack - Compact & Centered */}
+                   {/* Tech Stack - Compact & Centered */}
+                   <div className="w-full bg-slate-900/30 backdrop-blur-sm rounded-3xl p-4 md:p-8 border border-slate-700/40 shadow-inner">
+                     <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center border-b border-gray-700/50 pb-4">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">
+                          Stack Tecnológico
+                        </span>
+                     </h3>
                      
-                     <div>
-                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Frontend & Mobile</p>
-                       <div className="flex flex-wrap gap-3 justify-start">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" className="w-10 h-10" />
-                       </div>
-                     </div>
-                     
-                     <div>
-                       <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">Backend & Herramientas</p>
-                       <div className="flex flex-wrap gap-3 justify-start">
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" alt="Flask" className="w-10 h-10 brightness-0 invert" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" alt="Supabase" className="w-10 h-10" />
-                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-10 h-10" />
-                         <div className="w-10 h-10 bg-white rounded-lg p-1.5 flex items-center justify-center">
-                           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="w-full h-full" />
+                     {/* Flex with specific widths for mobile 2-col + centered orphan */}
+                     <div className="flex flex-wrap justify-center gap-3 md:gap-8">
+                       {SKILLS.map((category) => (
+                         <div 
+                           key={category.title} 
+                           className="w-[calc(50%-0.5rem)] md:w-auto flex flex-col items-center bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-md rounded-xl md:rounded-2xl p-3 md:p-6 border border-slate-700/60 shadow-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-brand-accent/40 transition-all duration-500 group/card"
+                         >
+                           <p className="text-[10px] md:text-sm text-brand-accent/90 font-bold mb-2 md:mb-5 uppercase tracking-widest text-shadow-sm text-center">{category.title}</p>
+                           <div className="flex flex-wrap gap-2 md:gap-4 justify-center">
+                             {category.skills.map((skill) => (
+                               <div key={skill.name} className="group relative" title={skill.name}>
+                                  <div className="w-10 h-10 md:w-16 md:h-16 bg-slate-800/80 backdrop-blur-sm rounded-lg md:rounded-2xl p-1.5 md:p-3 border border-slate-700/50 hover:bg-slate-700 group-hover/card:border-slate-600/50 transition-all flex items-center justify-center transform hover:scale-110 duration-300 shadow-md hover:shadow-brand-accent/20 cursor-help relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain filter group-hover:brightness-110 transition-all drop-shadow-md opacity-90 group-hover:opacity-100 relative z-10" />
+                                  </div>
+                               </div>
+                             ))}
+                           </div>
                          </div>
-                       </div>
+                       ))}
                      </div>
-                  </div>
+                   </div>
                 </div>
              </div>
-          </div>
+
         </section>
 
         {/* Projects Section */}
@@ -297,17 +306,6 @@ function App() {
                </a>
              ))}
            </div>
-        </section>
-
-        {/* GitHub Activity */}
-        <section className="scroll-mt-32 max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-10 border-b border-slate-800 pb-4">
-             <h2 className="text-3xl font-bold text-white">Actividad en GitHub</h2>
-             <a href={USER_INFO.github} target="_blank" rel="noreferrer" className="text-brand-accent hover:text-white text-sm font-semibold flex items-center gap-1 transition-colors">
-               Ver perfil completo <ExternalLink size={14} />
-             </a>
-          </div>
-          <StatsPanel />
         </section>
 
         {/* Contact Section */}
