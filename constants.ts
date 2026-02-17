@@ -139,9 +139,9 @@ export const SKILLS: SkillCategory[] = [
     title: "Backend",
     skills: [
       { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
-      { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" },
-      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-      { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+      { name: "Laravel", icon: "https://cdn.simpleicons.org/laravel/FF2D20" },
+      { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
+      { name: "Flask", icon: "https://cdn.simpleicons.org/flask/white" },
       { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" }
     ]
   },
@@ -156,7 +156,7 @@ export const SKILLS: SkillCategory[] = [
   {
     title: "Desktop",
     skills: [
-      { name: "PyQt5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg" },
+      { name: "PyQt5", icon: "https://cdn.simpleicons.org/qt/41CD52" },
       { name: "Streamlit", icon: "https://streamlit.io/images/brand/streamlit-mark-color.png" }
     ]
   },
@@ -167,7 +167,7 @@ export const SKILLS: SkillCategory[] = [
       { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
       { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
       { name: "Vercel", icon: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" },
-      { name: "Render", icon: "https://asset.brandfetch.io/idEe_atWjF/idb3aj35-5.png" }
+      { name: "Render", icon: "https://cdn.simpleicons.org/render/white" }
     ]
   }
 ];

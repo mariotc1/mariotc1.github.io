@@ -156,55 +156,61 @@ function App() {
              {/* Decorative gradient orb inside card */}
              <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-accent/20 rounded-full blur-[80px] group-hover:bg-brand-accent/30 transition-colors duration-700"></div>
 
-             <div className="flex flex-col lg:flex-row gap-12 items-start relative z-10">
-                <div className="flex-1 space-y-8">
-                   <h2 className="text-4xl font-bold text-white flex items-center gap-3">
-                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-500">Sobre mí</span>
-                   </h2>
-                   <div className="prose prose-invert prose-lg max-w-none">
-                     <p className="text-slate-300 leading-relaxed text-lg">
-                       {USER_INFO.bio}
-                     </p>
-                     <div className="bg-slate-800/50 border-l-4 border-brand-accent p-6 rounded-r-xl mt-8">
-                       <p className="text-white font-medium italic text-lg">
-                         "{USER_INFO.pitch}"
-                       </p>
-                     </div>
+                {/* Vertical Layout: Text Top, Stack Bottom */}
+                <div className="flex flex-col gap-16 relative z-10">
+                   
+                   {/* Text Section */}
+                   <div className="w-full">
+                      <h2 className="text-4xl md:text-5xl font-bold text-white flex items-center gap-4 mb-8 justify-center lg:justify-start">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-500">Sobre mí</span>
+                      </h2>
+                      <div className="prose prose-invert prose-xl max-w-none text-slate-300 text-justify leading-relaxed">
+                        <p className="mb-6">
+                          Soy Mario Tomé, desarrollador <strong className="text-white">Full Stack</strong> con formación técnica superior en Desarrollo de Aplicaciones Multiplataforma <strong className="text-white">(DAM)</strong> y Desarrollo de Aplicaciones Web <strong className="text-white">(DAW)</strong>.
+                        </p>
+                        <p className="mb-6">
+                          He construido aplicaciones reales en entornos de escritorio, web y móvil, trabajando todo el <strong className="text-white">ciclo de desarrollo:</strong> arquitectura, lógica, persistencia de datos, interfaz y despliegue.
+                        </p>
+                        <p className="mb-6">
+                          Me caracterizo por una fuerte disciplina, mentalidad profesional desde el primer día y obsesión por el clean code, la claridad y la mantenibilidad.
+                        </p>
+                        <p>
+                          Busco incorporarme a un equipo donde aportar <strong className="text-white">valor real</strong> como desarrollador junior, seguir creciendo técnicamente y asumir responsabilidades desde el primer momento.
+                        </p>
+                      </div>
+                      
+                      <div className="pt-8 flex justify-center lg:justify-start">
+                        <a href="/assets/Mario-Tome-Core-cv.pdf" download className="inline-flex items-center gap-3 bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-xl transition-all border border-slate-700 hover:border-brand-accent group shadow-lg hover:shadow-brand-accent/20 text-lg">
+                          <Download size={22} className="group-hover:-translate-y-1 transition-transform" /> 
+                          <span className="font-semibold">Descargar Curriculum</span>
+                        </a>
+                      </div>
                    </div>
                    
-                   <div className="pt-4">
-                     <a href="/assets/Mario-Tome-Core-cv.pdf" download className="inline-flex items-center gap-3 bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-xl transition-all border border-slate-700 hover:border-brand-accent group">
-                       <Download size={20} className="group-hover:-translate-y-1 transition-transform" /> 
-                       <span className="font-semibold">Descargar Curriculum</span>
-                     </a>
+                   {/* Tech Stack - Compact & Centered */}
+                   <div className="w-full">
+                     <h3 className="text-2xl font-bold text-white mb-8 border-b border-slate-700 pb-4 text-center">Stack Tecnológico</h3>
+                     
+                     <div className="flex flex-wrap gap-8 justify-center">
+                       {SKILLS.map((category) => (
+                         <div key={category.title} className="flex flex-col items-center bg-slate-800/20 rounded-2xl p-6 border border-slate-700/30">
+                           <p className="text-sm text-slate-400 font-bold mb-4 uppercase tracking-wider">{category.title}</p>
+                           <div className="flex flex-wrap gap-4 justify-center">
+                             {category.skills.map((skill) => (
+                               <div key={skill.name} className="group relative" title={skill.name}>
+                                  <div className="w-16 h-16 bg-slate-800/40 backdrop-blur-sm rounded-2xl p-3 border border-slate-700/50 hover:bg-slate-800 hover:border-brand-accent/50 transition-all flex items-center justify-center transform hover:scale-110 duration-300 shadow-lg hover:shadow-brand-accent/20 cursor-help">
+                                    <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain filter group-hover:brightness-110 transition-all drop-shadow-md" />
+                                  </div>
+                               </div>
+                             ))}
+                           </div>
+                         </div>
+                       ))}
+                     </div>
                    </div>
                 </div>
-                
-                {/* Skills Grid - New Structure */}
-                <div className="w-full lg:w-1/3 space-y-8">
-                  <h3 className="text-xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Stack Tecnológico</h3>
-                  
-                  {SKILLS.map((category) => (
-                    <div key={category.title}>
-                      <p className="text-xs text-slate-500 font-semibold mb-3 uppercase tracking-wider">{category.title}</p>
-                      <div className="flex flex-wrap gap-3 justify-start">
-                        {category.skills.map((skill) => (
-                          <div key={skill.name} className="group relative" title={skill.name}>
-                             <div className="w-12 h-12 bg-slate-800/50 rounded-xl p-2.5 border border-slate-700/50 hover:bg-slate-800 hover:border-brand-accent/50 transition-all flex items-center justify-center">
-                               <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain filter group-hover:brightness-110 transition-all" />
-                             </div>
-                             {/* Tooltip */}
-                             <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-slate-700">
-                               {skill.name}
-                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
              </div>
-          </div>
+
         </section>
 
         {/* Projects Section */}
