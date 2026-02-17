@@ -160,32 +160,51 @@ function App() {
                 <div className="flex flex-col gap-16 relative z-10">
                    
                    {/* Text Section */}
-                   <div className="w-full">
-                      <h2 className="text-4xl md:text-5xl font-bold text-white flex items-center gap-4 mb-8 justify-center lg:justify-start">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-500">Sobre mí</span>
-                      </h2>
-                      <div className="prose prose-invert prose-xl max-w-none text-slate-300 text-justify leading-relaxed">
-                        <p className="mb-6">
-                          Soy Mario Tomé, desarrollador <strong className="text-white">Full Stack</strong> con formación técnica superior en Desarrollo de Aplicaciones Multiplataforma <strong className="text-white">(DAM)</strong> y Desarrollo de Aplicaciones Web <strong className="text-white">(DAW)</strong>.
-                        </p>
-                        <p className="mb-6">
-                          He construido aplicaciones reales en entornos de escritorio, web y móvil, trabajando todo el <strong className="text-white">ciclo de desarrollo:</strong> arquitectura, lógica, persistencia de datos, interfaz y despliegue.
-                        </p>
-                        <p className="mb-6">
-                          Me caracterizo por una fuerte disciplina, mentalidad profesional desde el primer día y obsesión por el clean code, la claridad y la mantenibilidad.
-                        </p>
-                        <p>
-                          Busco incorporarme a un equipo donde aportar <strong className="text-white">valor real</strong> como desarrollador junior, seguir creciendo técnicamente y asumir responsabilidades desde el primer momento.
-                        </p>
+                   <motion.div 
+                     initial="hidden"
+                     whileInView="visible"
+                     viewport={{ once: true, margin: "-100px" }}
+                     variants={{
+                       hidden: { opacity: 0 },
+                       visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+                     }}
+                     className="w-full"
+                   >
+                      <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mb-10 border-b border-slate-700/50 pb-6">
+                        <motion.h2 
+                          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                          className="text-5xl md:text-6xl font-black text-white flex items-center gap-4"
+                        >
+                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-brand-accent to-purple-600 drop-shadow-lg">Sobre mí</span>
+                        </motion.h2>
+
+                        {/* Integrated Compact Button */}
+                        <motion.a 
+                          variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }}
+                          href="/assets/Mario-Tome-Core-cv.pdf" 
+                          download 
+                          className="flex items-center gap-2 px-5 py-2.5 bg-slate-800/50 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg border border-slate-700 hover:border-brand-accent transition-all duration-300 group text-sm font-medium backdrop-blur-sm"
+                        >
+                          <Download size={16} className="group-hover:text-brand-accent transition-colors" /> 
+                          <span>Descargar CV</span>
+                        </motion.a>
                       </div>
                       
-                      <div className="pt-8 flex justify-center lg:justify-start">
-                        <a href="/assets/Mario-Tome-Core-cv.pdf" download className="inline-flex items-center gap-3 bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-xl transition-all border border-slate-700 hover:border-brand-accent group shadow-lg hover:shadow-brand-accent/20 text-lg">
-                          <Download size={22} className="group-hover:-translate-y-1 transition-transform" /> 
-                          <span className="font-semibold">Descargar Curriculum</span>
-                        </a>
+                      <div className="prose prose-invert prose-2xl max-w-none text-slate-300 text-justify leading-relaxed">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="mb-8">
+                          Soy Mario Tomé, desarrollador <strong className="text-white font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">Full Stack</strong> con formación técnica superior en Desarrollo de Aplicaciones Multiplataforma <strong className="text-white">(DAM)</strong> y Desarrollo de Aplicaciones Web <strong className="text-white">(DAW)</strong>.
+                        </motion.p>
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="mb-8">
+                          He construido aplicaciones reales en entornos de escritorio, web y móvil, trabajando todo el <strong className="text-white">ciclo de desarrollo:</strong> arquitectura, lógica, persistencia de datos, interfaz y despliegue.
+                        </motion.p>
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="mb-8">
+                          Me caracterizo por una fuerte disciplina, mentalidad profesional desde el primer día y obsesión por el clean code, la claridad y la mantenibilidad.
+                        </motion.p>
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                          Busco incorporarme a un equipo donde aportar <strong className="text-white">valor real</strong> como desarrollador junior, seguir creciendo técnicamente y asumir responsabilidades desde el primer momento.
+                        </motion.p>
                       </div>
-                   </div>
+                   </motion.div>
                    
                    {/* Tech Stack - Compact & Centered */}
                    <div className="w-full">
