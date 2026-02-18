@@ -186,17 +186,17 @@ function App() {
                         </motion.a>
                       </div>
                       
-                      <div className="text-slate-300 text-justify leading-relaxed flex flex-col gap-6">
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-xl md:text-2xl font-light">
+                      <div className="text-slate-300 text-left leading-relaxed flex flex-col gap-4 md:gap-6">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-2xl font-light">
                           Soy Mario Tomé, desarrollador <strong className="text-white font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">Full Stack</strong> con formación técnica superior en Desarrollo de Aplicaciones Multiplataforma <strong className="text-white">(DAM)</strong> y Desarrollo de Aplicaciones Web <strong className="text-white">(DAW)</strong>.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-xl text-slate-400">
                           He construido aplicaciones reales en entornos de escritorio, web y móvil, trabajando todo el <strong className="text-white">ciclo de desarrollo:</strong> arquitectura, lógica, persistencia de datos, interfaz y despliegue.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-xl text-slate-400">
                           Me caracterizo por una fuerte disciplina, mentalidad profesional desde el primer día y obsesión por el clean code, la claridad y la mantenibilidad.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-xl text-slate-400">
                           Busco incorporarme a un equipo donde aportar <strong className="text-white">valor real</strong> como desarrollador junior, seguir creciendo técnicamente y asumir responsabilidades desde el primer momento.
                         </motion.p>
                       </div>
