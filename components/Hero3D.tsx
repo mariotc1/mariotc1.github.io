@@ -1,9 +1,9 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial, Float } from '@react-three/drei';
+import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
-const ParticleSphere = (props: any) => {
+const ParticleField = (props: any) => {
   const ref = useRef<THREE.Points>(null!);
   
   // Detect mobile to reduce particle count
@@ -16,7 +16,7 @@ const ParticleSphere = (props: any) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Generate a circular texture for the particles to avoid "squares"
+  // Generate a circular texture for the particles
   const texture = useMemo(() => {
     const canvas = document.createElement('canvas');
     canvas.width = 32;
@@ -29,12 +29,12 @@ const ParticleSphere = (props: any) => {
       context.fillStyle = gradient;
       context.fillRect(0, 0, 32, 32);
     }
-    const texture = new THREE.CanvasTexture(canvas);
-    return texture;
+    return new THREE.CanvasTexture(canvas);
   }, []);
 
-  // Optimization: Reduce count on mobile to prevent lag
-  const count = isMobile ? 800 : 3000;
+  // Optimization: Drastically reduced count for "Ambient Dust" feel (Quality over Quantity)
+  // Mobile: 300 (was 800) - Desktop: 1000 (was 3000)
+  const count = isMobile ? 300 : 1000;
   
   const [positions, colors] = useMemo(() => {
     const positions = new Float32Array(count * 3);
@@ -42,35 +42,37 @@ const ParticleSphere = (props: any) => {
     const color = new THREE.Color();
 
     for (let i = 0; i < count; i++) {
-      const r = 1.5;
-      const theta = 2 * Math.PI * Math.random();
-      const phi = Math.acos(2 * Math.random() - 1);
-      
-      const x = r * Math.sin(phi) * Math.cos(theta);
-      const y = r * Math.sin(phi) * Math.sin(theta);
-      const z = r * Math.cos(phi);
+        // Spread particles across a wide "Deep Space" box
+        const x = (Math.random() - 0.5) * 15; // Wide horizontal spread
+        const y = (Math.random() - 0.5) * 15; // Vertical spread
+        const z = (Math.random() - 0.5) * 10; // Depth
 
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
+        positions[i * 3] = x;
+        positions[i * 3 + 1] = y;
+        positions[i * 3 + 2] = z;
 
-      // Mix between cyan and purple
-      const mixedColor = color.setHSL(Math.random() * 0.2 + 0.5, 0.8, 0.6);
-      colors[i * 3] = mixedColor.r;
-      colors[i * 3 + 1] = mixedColor.g;
-      colors[i * 3 + 2] = mixedColor.b;
+        // Elegant, subtle palette: Mostly white/cyan, less saturation
+        // Mix strictly between brand accent and white for "Premium" feel
+        const isAccent = Math.random() > 0.8; // 20% accent particles
+        const mixedColor = isAccent 
+            ? color.set("#38bdf8") // Brand Accent (Cyan)
+            : color.set("#94a3b8"); // Slate 400 (Subtle Grey/White)
+            
+        colors[i * 3] = mixedColor.r;
+        colors[i * 3 + 1] = mixedColor.g;
+        colors[i * 3 + 2] = mixedColor.b;
     }
     return [positions, colors];
   }, [count]);
 
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
+      // Extremely slow, elegant rotation for the whole field
+      ref.current.rotation.x -= delta / 50;
+      ref.current.rotation.y -= delta / 40;
       
-      // Breathing effect
-      const t = state.clock.getElapsedTime();
-      ref.current.scale.setScalar(1 + Math.sin(t * 1.5) * 0.05);
+      // Gentle "Breathing" is too distracting for "Professional", kept static or extremely subtle
+      // Removed scale breathing for stability
     }
   });
 
@@ -81,10 +83,12 @@ const ParticleSphere = (props: any) => {
           transparent
           vertexColors
           map={texture}
-          alphaTest={0.01} // Low alphaTest to keep the soft edges
+          alphaTest={0.001}
+          opacity={0.6} // More subtle opacity
           depthWrite={false}
-          size={isMobile ? 0.05 : 0.03} // Slightly larger to compensate for soft edges
+          size={isMobile ? 0.15 : 0.12} // Larger "Bokeh" dust effect
           sizeAttenuation={true}
+          blending={THREE.AdditiveBlending} // Glow effect
         />
       </Points>
     </group>
@@ -97,22 +101,24 @@ interface Hero3DProps {
 
 const Hero3D: React.FC<Hero3DProps> = ({ onScrollClick }) => {
   return (
-    <div className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-b from-brand-dark to-slate-900 overflow-hidden">
+    <div className="absolute inset-0 w-full h-full -z-10 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] overflow-hidden">
       {/* 
         CRITICAL OPTIMIZATION: 
-        dpr={[1, 2]} clamps the pixel ratio. 
-        Mobile phones often have dpr=3 or 4, which kills performance on full-screen WebGL.
-        Limiting to 2 keeps it sharp but performant.
+        dpr={[1, 1.5]} further clamps pixel ratio for smoothness.
+        Legacy: was [1, 2]. 1.5 is visually indistinguishable on high-DPI but 25% faster.
       */}
       <Canvas 
-        camera={{ position: [0, 0, 3.5] }} 
-        dpr={[1, 2]} 
-        gl={{ antialias: true, powerPreference: "high-performance" }}
+        camera={{ position: [0, 0, 5], fov: 60 }} 
+        dpr={[1, 1.5]} 
+        gl={{ 
+            antialias: false, // Explicitly disable AA for particles (not needed with texture) -> huge perf boost
+            powerPreference: "high-performance",
+            alpha: false,
+            stencil: false,
+            depth: false // Disable depth buffer for background particles -> perf boost
+        }}
       >
-        <ambientLight intensity={0.5} />
-        <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
-           <ParticleSphere />
-        </Float>
+        <ParticleField />
       </Canvas>
     </div>
   );
