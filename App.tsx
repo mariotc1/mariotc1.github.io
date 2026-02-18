@@ -73,58 +73,76 @@ function App() {
         </div>
       </nav>
 
-       {/* Hero Section - Updated height for mobile */}
-      <header className="relative h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Brutal & Responsive Redesign */}
+      <header className="relative h-[100dvh] flex flex-col items-center justify-center overflow-hidden selection:bg-cyan-400 selection:text-black">
         <Hero3D onScrollClick={() => scrollToSection('about')} />
         
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
+        {/* Main Content Container - Centered Vertically & Horizontally */}
+        <div className="relative z-10 flex flex-col items-center justify-center px-4 w-full h-full pb-20 md:pb-0">
+          
+          {/* Profile Image - Dynamic sizing */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="mb-8 relative inline-block group"
+            initial={{ opacity: 0, scale: 0.8, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-8 md:mb-12 relative group"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-brand-accent to-purple-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-spin-slow"></div>
-            {/* User Profile Image */}
-            <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-slate-900/80 shadow-2xl">
+            <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-brand-accent to-purple-600 rounded-full blur-md opacity-50 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+            <div className="relative w-32 h-32 md:w-64 md:h-64 rounded-full overflow-hidden border-2 md:border-4 border-slate-900/80 shadow-2xl ring-2 ring-white/10">
                <img 
                  src="/assets/profile.jpeg" 
                  onError={(e) => { e.currentTarget.src = 'https://picsum.photos/400/400?grayscale' }}
                  alt={USER_INFO.name} 
-                 className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700" 
+                 className="w-full h-full object-cover transform decoration-clone" 
                />
             </div>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-2xl"
-          >
-            {USER_INFO.name} <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 text-4xl md:text-6xl">
-               Desarrollador Full Stack
-            </span>
-          </motion.h1>
+          {/* Text Content - Brutal Typography */}
+          <div className="text-center flex flex-col gap-2 md:gap-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-4xl md:text-8xl font-black text-white tracking-tighter uppercase drop-shadow-xl"
+            >
+              {USER_INFO.name}
+            </motion.h1>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-2xl md:text-6xl font-bold tracking-tight"
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-brand-accent to-purple-400">
+                Full Stack Dev
+              </span>
+            </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-slate-300 text-lg md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed font-light"
-          >
-            {USER_INFO.subheading}
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-slate-400 text-sm md:text-xl font-medium tracking-wide max-w-xs md:max-w-2xl mx-auto mt-4 md:mt-0 leading-relaxed"
+            >
+              {USER_INFO.subheading}
+            </motion.p>
+          </div>
         </div>
 
+        {/* Scroll Indicator - Bottom Anchored */}
         <motion.div 
-          animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 cursor-pointer hover:text-brand-accent transition-colors"
+          initial={{ opacity: 0 }}
+          animate={{ y: [0, 8, 0], opacity: 1 }}
+          transition={{ delay: 1, repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 cursor-pointer p-4 group"
           onClick={() => scrollToSection('about')}
         >
-          <ChevronDown size={40} />
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 font-semibold group-hover:text-brand-accent transition-colors">Scroll</span>
+            <ChevronDown size={28} className="text-slate-400 group-hover:text-brand-accent transition-colors" />
+          </div>
         </motion.div>
       </header>
 
