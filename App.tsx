@@ -74,11 +74,11 @@ function App() {
       </nav>
 
       {/* Hero Section - Brutal & Responsive Redesign */}
-      <header className="relative h-[100dvh] flex flex-col items-center justify-center overflow-hidden selection:bg-cyan-400 selection:text-black">
+      <header className="relative h-[100dvh] flex flex-col items-center overflow-hidden selection:bg-cyan-400 selection:text-black">
         <Hero3D onScrollClick={() => scrollToSection('about')} />
         
-        {/* Main Content Container - Centered Vertically & Horizontally */}
-        <div className="relative z-10 flex flex-col items-center justify-center px-4 w-full h-full pb-20 md:pb-0">
+        {/* Main Content Container - Grows to fill space, centers content */}
+        <div className="flex-grow flex flex-col items-center justify-center w-full px-4 relative z-10">
           
           {/* Profile Image - Dynamic sizing */}
           <motion.div
@@ -131,18 +131,15 @@ function App() {
           </div>
         </div>
 
-        {/* Scroll Indicator - Bottom Anchored */}
+        {/* Scroll Indicator - Integrated in Flex Flow (Guaranteed Center) */}
         <motion.div 
           initial={{ opacity: 0 }}
-          animate={{ y: [0, 8, 0], opacity: 1 }}
+          animate={{ y: [0, 10, 0], opacity: 1 }}
           transition={{ delay: 1, repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 cursor-pointer p-4 group"
+          className="pb-8 md:pb-12 z-10 cursor-pointer text-slate-500 hover:text-brand-accent transition-colors"
           onClick={() => scrollToSection('about')}
         >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 font-semibold group-hover:text-brand-accent transition-colors">Scroll</span>
-            <ChevronDown size={28} className="text-slate-400 group-hover:text-brand-accent transition-colors" />
-          </div>
+          <ChevronDown size={32} strokeWidth={2.5} />
         </motion.div>
       </header>
 
