@@ -16,6 +16,23 @@ const ParticleSphere = (props: any) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Generate a circular texture for the particles to avoid "squares"
+  const texture = useMemo(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const context = canvas.getContext('2d');
+    if (context) {
+      const gradient = context.createRadialGradient(16, 16, 0, 16, 16, 16);
+      gradient.addColorStop(0, 'rgba(255,255,255,1)');
+      gradient.addColorStop(1, 'rgba(255,255,255,0)');
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, 32, 32);
+    }
+    const texture = new THREE.CanvasTexture(canvas);
+    return texture;
+  }, []);
+
   // Optimization: Reduce count on mobile to prevent lag
   const count = isMobile ? 800 : 3000;
   
@@ -63,9 +80,11 @@ const ParticleSphere = (props: any) => {
         <PointMaterial
           transparent
           vertexColors
-          size={isMobile ? 0.035 : 0.02} // Slightly larger particles on mobile for visibility
-          sizeAttenuation={true}
+          map={texture}
+          alphaTest={0.01} // Low alphaTest to keep the soft edges
           depthWrite={false}
+          size={isMobile ? 0.05 : 0.03} // Slightly larger to compensate for soft edges
+          sizeAttenuation={true}
         />
       </Points>
     </group>

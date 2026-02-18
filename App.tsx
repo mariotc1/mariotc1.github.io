@@ -74,7 +74,7 @@ function App() {
       </nav>
 
        {/* Hero Section - Updated height for mobile */}
-      <header className="relative h-[100dvh] flex items-center justify-center overflow-hidden">
+      <header className="relative h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden">
         <Hero3D onScrollClick={() => scrollToSection('about')} />
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
@@ -116,26 +116,6 @@ function App() {
           >
             {USER_INFO.subheading}
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center"
-          >
-            <button 
-              onClick={() => scrollToSection('projects')}
-              className="px-8 py-4 bg-white text-brand-dark font-bold rounded-full transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2"
-            >
-              <Code size={20} /> Ver proyectos
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="px-8 py-4 bg-slate-800/40 hover:bg-slate-800/80 text-white font-semibold rounded-full border border-slate-600 backdrop-blur-md transition-all hover:scale-105 hover:border-brand-accent"
-            >
-              Solicitar contacto
-            </button>
-          </motion.div>
         </div>
 
         <motion.div 
