@@ -73,78 +73,73 @@ function App() {
         </div>
       </nav>
 
-       {/* Hero Section - Updated height for mobile */}
-      <header className="relative h-[100dvh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Brutal & Responsive Redesign */}
+      <header className="relative h-[100dvh] flex flex-col items-center overflow-hidden selection:bg-cyan-400 selection:text-black">
         <Hero3D onScrollClick={() => scrollToSection('about')} />
         
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
+        {/* Main Content Container - Grows to fill space, centers content */}
+        <div className="flex-grow flex flex-col items-center justify-center w-full px-4 relative z-10">
+          
+          {/* Profile Image - Dynamic sizing */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="mb-8 relative inline-block group"
+            initial={{ opacity: 0, scale: 0.8, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-8 md:mb-12 relative group"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-brand-accent to-purple-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-spin-slow"></div>
-            {/* User Profile Image */}
-            <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-slate-900/80 shadow-2xl">
+            <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-brand-accent to-purple-600 rounded-full blur-md opacity-50 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+            <div className="relative w-32 h-32 md:w-64 md:h-64 rounded-full overflow-hidden border-2 md:border-4 border-slate-900/80 shadow-2xl ring-2 ring-white/10">
                <img 
                  src="/assets/profile.jpeg" 
                  onError={(e) => { e.currentTarget.src = 'https://picsum.photos/400/400?grayscale' }}
                  alt={USER_INFO.name} 
-                 className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700" 
+                 className="w-full h-full object-cover transform decoration-clone" 
                />
             </div>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-2xl"
-          >
-            {USER_INFO.name} <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 text-4xl md:text-6xl">
-               Desarrollador Full Stack
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-slate-300 text-lg md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed font-light"
-          >
-            {USER_INFO.subheading}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center"
-          >
-            <button 
-              onClick={() => scrollToSection('projects')}
-              className="px-8 py-4 bg-white text-brand-dark font-bold rounded-full transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2"
+          {/* Text Content - Brutal Typography */}
+          <div className="text-center flex flex-col gap-2 md:gap-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-4xl md:text-8xl font-black text-white tracking-tighter uppercase drop-shadow-xl"
             >
-              <Code size={20} /> Ver proyectos
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="px-8 py-4 bg-slate-800/40 hover:bg-slate-800/80 text-white font-semibold rounded-full border border-slate-600 backdrop-blur-md transition-all hover:scale-105 hover:border-brand-accent"
+              {USER_INFO.name}
+            </motion.h1>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-2xl md:text-6xl font-bold tracking-tight"
             >
-              Solicitar contacto
-            </button>
-          </motion.div>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-brand-accent to-purple-400">
+                Full Stack Dev
+              </span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-slate-400 text-sm md:text-xl font-medium tracking-wide max-w-xs md:max-w-2xl mx-auto mt-4 md:mt-0 leading-relaxed"
+            >
+              {USER_INFO.subheading}
+            </motion.p>
+          </div>
         </div>
 
+        {/* Scroll Indicator - Integrated in Flex Flow (Guaranteed Center) */}
         <motion.div 
-          animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 cursor-pointer hover:text-brand-accent transition-colors"
+          initial={{ opacity: 0 }}
+          animate={{ y: [0, 10, 0], opacity: 1 }}
+          transition={{ delay: 1, repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="pb-8 md:pb-12 z-10 cursor-pointer text-slate-500 hover:text-brand-accent transition-colors"
           onClick={() => scrollToSection('about')}
         >
-          <ChevronDown size={40} />
+          <ChevronDown size={32} strokeWidth={2.5} />
         </motion.div>
       </header>
 
@@ -191,17 +186,17 @@ function App() {
                         </motion.a>
                       </div>
                       
-                      <div className="text-slate-300 text-justify leading-relaxed flex flex-col gap-6">
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-xl md:text-2xl font-light">
+                      <div className="text-slate-300 text-left leading-relaxed flex flex-col gap-4 md:gap-6">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-2xl font-light">
                           Soy Mario Tomé, desarrollador <strong className="text-white font-bold drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">Full Stack</strong> con formación técnica superior en Desarrollo de Aplicaciones Multiplataforma <strong className="text-white">(DAM)</strong> y Desarrollo de Aplicaciones Web <strong className="text-white">(DAW)</strong>.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-xl text-slate-400">
                           He construido aplicaciones reales en entornos de escritorio, web y móvil, trabajando todo el <strong className="text-white">ciclo de desarrollo:</strong> arquitectura, lógica, persistencia de datos, interfaz y despliegue.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-xl text-slate-400">
                           Me caracterizo por una fuerte disciplina, mentalidad profesional desde el primer día y obsesión por el clean code, la claridad y la mantenibilidad.
                         </motion.p>
-                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg md:text-xl text-slate-400">
+                        <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-xl text-slate-400">
                           Busco incorporarme a un equipo donde aportar <strong className="text-white">valor real</strong> como desarrollador junior, seguir creciendo técnicamente y asumir responsabilidades desde el primer momento.
                         </motion.p>
                       </div>
