@@ -86,40 +86,40 @@ export const PROJECTS: Project[] = [
 
 export const ACADEMIC_REPOS: Project[] = [
   {
-    slug: "apptaller",
-    title: "appTaller",
-    repo: "https://github.com/mariotc1/appTaller",
-    tech: ["Java", "Swing", "MySQL"],
-    status: "Proyecto",
+    slug: "dwes",
+    title: "Desarrollo de Entorno Servidor",
+    repo: "https://github.com/mariotc1/desarrollo_web_entorno_servidor",
+    tech: ["PHP", "Laravel", "Docker", "MAMP"],
+    status: "Módulo",
     private: false,
-    short: "Gestión de taller mecánico (Java SE)."
+    short: "Arquitectura backend, APIs y bases de datos relacionales."
   },
   {
-    slug: "dwes",
-    title: "Desarrollo Web Servidor",
-    repo: "https://github.com/mariotc1/desarrollo_web_entorno_servidor",
-    tech: ["PHP", "Laravel", "Docker"],
-    status: "Proyecto",
+    slug: "dwec",
+    title: "Desarrollo de Entorno Cliente",
+    repo: "https://github.com/mariotc1/desarrollo_web_entorno_cliente",
+    tech: ["React", "Next.js", "Tailwind", "Node"],
+    status: "Módulo",
     private: false,
-    short: "Prácticas de DWES (Backend)."
+    short: "SPAs, interactividad avanzada y consumo de APIs."
   },
   {
     slug: "diw",
-    title: "Diseño Interfaces Web",
+    title: "Diseño de Interfaces Web",
     repo: "https://github.com/mariotc1/dessing_de_interfaces_web",
-    tech: ["HTML5", "CSS3", "JS"],
-    status: "Proyecto",
+    tech: ["Figma", "HTML5", "CSS3", "JS"],
+    status: "Módulo",
     private: false,
-    short: "Prácticas de maquetación y UX."
+    short: "Prototipado UI/UX, maquetación responsive y animaciones."
   },
   {
-    slug: "deploy",
-    title: "Desarrollo Web Cliente",
-    repo: "https://github.com/mariotc1/desarrollo_web_entorno_cliente",
-    tech: ["JS", "HTML5", "CSS3"],
-    status: "Proyecto",
+    slug: "daw",
+    title: "Despliegue de Aplicaciones",
+    repo: "https://github.com/mariotc1/despliegue-aplicaciones-web",
+    tech: ["Docker", "Vercel", "Render", "Apache"],
+    status: "Módulo",
     private: false,
-    short: "Prácticas de DWEC (Cliente)."
+    short: "CI/CD, contenerización y administración de servidores."
   }
 ];
 

@@ -258,45 +258,45 @@ function App() {
           </div>
         </section>
 
-        {/* Academic Repos */}
-        <section id="academic" className="scroll-mt-32 max-w-7xl mx-auto">
-           <div className="flex items-center gap-4 mb-8">
-              <div className="bg-slate-800 p-3 rounded-xl text-brand-accent">
-                <Terminal size={32} />
+        {/* Academic Repos - "Fundamentos & Arquitectura" */}
+        <section id="academic" className="scroll-mt-32 max-w-7xl mx-auto px-4 md:px-0">
+           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-10">
+              <div className="bg-slate-900 border border-slate-700 p-4 rounded-xl shadow-[0_0_20px_rgba(56,189,248,0.1)]">
+                <Terminal size={28} className="text-brand-accent" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white">Repositorios Académicos</h2>
-                <p className="text-slate-400">Proyectos desarrollados durante DAM & DAW</p>
+                <h2 className="text-3xl md:text-4xl font-black text-white">Fundamentos & Arquitectura</h2>
+                <p className="text-slate-400 text-lg mt-1 font-mono text-sm border-l-2 border-brand-accent/50 pl-3">Repositorios Base · Ciclo Superior Desarrollo de Aplicaciones Web (DAW)</p>
               </div>
            </div>
            
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
              {ACADEMIC_REPOS.map((repo) => (
                <a 
                  key={repo.slug} 
                  href={repo.repo} 
                  target="_blank" 
                  rel="noreferrer"
-                 className="bg-slate-900/40 border border-slate-700/50 p-6 rounded-2xl hover:bg-slate-800 hover:border-brand-accent/50 transition-all group relative overflow-hidden"
+                 className="group relative bg-slate-900/60 backdrop-blur-md border border-slate-700/50 p-6 rounded-2xl hover:bg-slate-800/80 hover:border-brand-accent/50 transition-all duration-300 overflow-hidden flex flex-col h-full shadow-lg"
                >
-                 <div className="absolute top-0 right-0 w-16 h-16 bg-brand-accent/5 rounded-bl-full transition-all group-hover:bg-brand-accent/10"></div>
+                 {/* Cyber Glow Effect */}
+                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-accent to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-500"></div>
                  
-                 <div className="flex justify-between items-start mb-4 relative z-10">
-                   <div className="p-2 bg-slate-800 rounded-lg group-hover:text-brand-accent transition-colors text-slate-400">
-                     {repo.tech[0] === 'Java' ? <Code size={20}/> : 
-                      repo.tech[0] === 'PHP' ? <Database size={20}/> :
-                      <Terminal size={20}/>}
+                 <div className="relative z-10 flex flex-col h-full">
+                   <div className="flex justify-between items-start mb-5">
+                     <h4 className="font-bold text-white text-xl group-hover:text-cyan-400 transition-colors">{repo.title}</h4>
+                     <ExternalLink size={20} className="text-slate-500 group-hover:text-white transition-transform group-hover:scale-110 group-hover:-translate-y-1 group-hover:translate-x-1" />
                    </div>
-                   <ExternalLink size={16} className="text-slate-500 group-hover:text-white transition-colors" />
-                 </div>
-                 
-                 <h4 className="font-bold text-white text-lg mb-2 group-hover:text-brand-accent transition-colors">{repo.title}</h4>
-                 <p className="text-sm text-slate-400 mb-4 leading-relaxed">{repo.short}</p>
-                 
-                 <div className="flex flex-wrap gap-2 text-xs">
-                    {repo.tech.map(t => (
-                      <span key={t} className="text-slate-300 bg-slate-800/80 px-2 py-1 rounded border border-slate-700">{t}</span>
-                    ))}
+                   
+                   <p className="text-sm text-slate-300 mb-6 flex-grow leading-relaxed font-light">{repo.short}</p>
+                   
+                   <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-700/50">
+                      {repo.tech.map(t => (
+                        <span key={t} className="text-cyan-300 font-mono text-[10px] md:text-xs bg-slate-950 px-3 py-1 rounded-md border border-slate-800 group-hover:border-slate-600 transition-colors uppercase tracking-wider">
+                          {t}
+                        </span>
+                      ))}
+                   </div>
                  </div>
                </a>
              ))}
