@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
     repo: "https://github.com/mariotc1/edufinder-cyl",
     demo: "https://edufinder-cyl.vercel.app/",
     tech: ["Next.js", "TypeScript", "Laravel", "Docker"],
-    status: "Destacado",
+    status: "TFG DAW",
     private: false,
     short: "Plataforma Full Stack para centralizar la búsqueda de centros educativos en Castilla y León.",
     description: "Plataforma Full Stack para centralizar la búsqueda de centros educativos en Castilla y León."
@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
     repo: "https://github.com/mariotc1/fantasyHelper",
     demo: "https://xi-fantasy.streamlit.app/",
     tech: ["Python", "Streamlit"],
-    status: "Destacado",
+    status: "Data & Scraping",
     private: false,
     short: "Aplicación de análisis de datos para optimizar alineaciones fantasy mediante scraping.",
     description: "Aplicación de análisis de datos para optimizar alineaciones fantasy mediante scraping."
@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
     image: "/assets/pomodoroapp.png",
     repo: "https://github.com/mariotc1/PomodoroApp",
     tech: ["Swift"],
-    status: "Destacado",
+    status: "En Desarrollo",
     private: false,
     short: "App iOS que educa el uso intencional del móvil mediante sesiones inteligentes y gamificación.",
     description: "App iOS que educa el uso intencional del móvil mediante sesiones inteligentes y gamificación."
@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     repo: "https://github.com/mariotc1/pomodoro-landing",
     demo: "https://pomodoro-landing.vercel.app/",
     tech: ["HTML", "CSS", "JavaScript"],
-    status: "Destacado",
+    status: "Landing Page",
     private: false,
     short: "Landing estratégica conectada a MailerLite para captación de beta testers.",
     description: "Landing estratégica conectada a MailerLite para captación de beta testers."
@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
     repo: "https://github.com/mariotc1/proyecto-ut6-the-simpsons",
     demo: "https://the-simpsons-pearl.vercel.app/",
     tech: ["Next.js", "React"],
-    status: "Destacado",
+    status: "API Integration",
     private: false,
     short: "Aplicación interactiva que explota la API oficial de Los Simpsons con estadísticas y quiz.",
     description: "Aplicación interactiva que explota la API oficial de Los Simpsons con estadísticas y quiz."
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     image: "/assets/aplicación-stckdb.png",
     repo: "https://github.com/mariotc1/AppStockDB-",
     tech: ["Python", "PyQt5", "Flask"],
-    status: "Destacado",
+    status: "TFG DAM",
     private: false,
     short: "Aplicación de escritorio con API para gestión inmobiliaria.",
     description: "Aplicación de escritorio con API para gestión inmobiliaria."

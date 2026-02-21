@@ -46,14 +46,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             loading="lazy"
           />
           <div className="absolute top-3 right-3 flex gap-2 z-20">
-            {project.status === 'Destacado' && (
-              <span className="bg-amber-500 text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full shadow-lg">
-                Destacado
-              </span>
-            )}
-             {project.status === 'TFG' && (
-              <span className="bg-purple-600 text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full shadow-lg">
-                TFG
+            {project.status && (
+              <span className="bg-slate-900/80 backdrop-blur-md border border-brand-accent/30 text-brand-accent text-[10px] md:text-xs uppercase tracking-wider font-bold px-3 py-1 rounded-full shadow-lg">
+                {project.status}
               </span>
             )}
           </div>
