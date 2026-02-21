@@ -7,7 +7,7 @@ export interface Project {
   repo: string;
   demo?: string;
   tech: string[];
-  status: 'Destacado' | 'Proyecto' | 'TFG';
+  status: string;
   private: boolean;
   short: string;
   description?: string; // Long description for modal

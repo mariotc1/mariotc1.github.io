@@ -14,7 +14,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const toggleModal = () => setIsOpen(!isOpen);
 
   // Fallback for demo/thumb images using placeholder if local asset missing
-  // In a real scenario, use: `/assets/project-${project.slug}-thumb.png`
   const thumbUrl = project.image || `https://picsum.photos/seed/${project.slug}/800/600`;
 
   const handleCopyRequest = () => {
@@ -23,14 +22,33 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     alert('Mensaje copiado al portapapeles');
   };
 
+  // Dynamic Color Mapping for Premium Tags
+  const getTagColor = (status: string) => {
+    const s = status.toLowerCase();
+    if (s.includes('tfg')) {
+      return "text-purple-300 border-purple-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(168,85,247,0.3)]";
+    }
+    if (s.includes('desarrollo')) {
+      return "text-emerald-300 border-emerald-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(16,185,129,0.3)]";
+    }
+    if (s.includes('data') || s.includes('scraping')) {
+      return "text-amber-300 border-amber-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(245,158,11,0.3)]";
+    }
+    if (s.includes('api')) {
+      return "text-rose-300 border-rose-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(225,29,72,0.3)]";
+    }
+    // Default / Landing Page
+    return "text-cyan-300 border-cyan-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(6,182,212,0.3)]";
+  };
+
   return (
     <>
       <motion.div
-        className="group relative bg-slate-900/40 backdrop-blur-md border border-slate-700/50 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-all duration-500 shadow-xl hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] cursor-pointer flex flex-col h-full"
-        whileHover={{ y: -8 }}
+        className="group relative bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden hover:border-slate-500/50 transition-all duration-700 hover:shadow-[0_0_40px_rgba(56,189,248,0.1)] cursor-pointer flex flex-col h-full transform-gpu isolate"
+        whileHover={{ y: -5 }}
         onClick={toggleModal}
       >
-        <div className="h-52 overflow-hidden relative">
+        <div className="h-52 overflow-hidden relative rounded-t-2xl">
             {project.private ? (
                  <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center z-10 border-b border-slate-700/50">
                      <span className="flex items-center gap-2 text-slate-300 font-semibold border border-slate-600/50 bg-slate-800/50 px-4 py-2 rounded-full backdrop-blur-md">
@@ -38,41 +56,39 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                      </span>
                  </div>
             ) : null}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60 z-10" />
+          {/* Enhanced Image Overlay for Premium Depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 z-10 mix-blend-multiply" />
           <img
             src={thumbUrl}
             alt={project.title}
-            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${project.private ? 'blur-sm grayscale' : ''}`}
+            className={`w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${project.private ? 'blur-sm grayscale' : ''}`}
             loading="lazy"
           />
-          <div className="absolute top-3 right-3 flex gap-2 z-20">
-            {project.status === 'Destacado' && (
-              <span className="bg-amber-500 text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full shadow-lg">
-                Destacado
-              </span>
-            )}
-             {project.status === 'TFG' && (
-              <span className="bg-purple-600 text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full shadow-lg">
-                TFG
+          <div className="absolute top-4 right-4 flex gap-2 z-20">
+            {project.status && (
+              <span className={`border text-[10px] md:text-[11px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full backdrop-blur-md transition-colors duration-300 ${getTagColor(project.status)}`}>
+                {project.status}
               </span>
             )}
           </div>
         </div>
 
-        <div className="p-6 flex flex-col flex-grow relative">
-          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">
+        <div className="p-6 md:p-8 flex flex-col flex-grow relative z-20">
+          <h3 className="text-2xl md:text-3xl font-black text-white mb-3 group-hover:text-brand-accent transition-colors duration-500 drop-shadow-md">
             {project.title}
           </h3>
-          <p className="text-slate-400 text-sm mb-5 flex-grow leading-relaxed">{project.short}</p>
+          <p className="text-slate-400 text-sm md:text-base mb-6 flex-grow leading-relaxed font-light">
+            {project.short}
+          </p>
           
           <div className="flex flex-wrap gap-2 mt-auto">
             {project.tech.slice(0, 3).map((t) => (
-              <span key={t} className="text-xs font-medium bg-slate-800/80 text-cyan-300 px-3 py-1.5 rounded-full border border-slate-700/50">
+              <span key={t} className="text-[10px] md:text-xs font-semibold bg-slate-800/80 text-cyan-300 px-3 py-1.5 rounded-full border border-slate-700/50 group-hover:bg-slate-800 transition-colors shadow-sm">
                 {t}
               </span>
             ))}
             {project.tech.length > 3 && (
-               <span className="text-xs font-medium bg-slate-800/80 text-slate-400 px-3 py-1.5 rounded-full border border-slate-700/50">
+               <span className="text-[10px] md:text-xs font-semibold bg-slate-800/50 text-slate-400 px-3 py-1.5 rounded-full border border-slate-700/30">
                 +{project.tech.length - 3}
               </span>
             )}
@@ -101,20 +117,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             >
               <button
                 onClick={toggleModal}
-                className="absolute top-4 right-4 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-2 transition-all z-20 backdrop-blur-sm"
+                className="absolute top-4 right-4 z-[70] w-10 h-10 flex items-center justify-center rounded-full bg-slate-900/60 backdrop-blur-md border border-slate-700 text-slate-400 hover:text-white hover:bg-rose-500 hover:border-rose-400 hover:shadow-[0_0_15px_rgba(244,63,94,0.5)] transition-all duration-300"
                 aria-label="Cerrar"
               >
                 ✕
               </button>
 
-              <div className="relative h-64 w-full">
-                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
+              <div className="relative h-64 md:h-80 w-full">
+                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10" />
                  <img src={thumbUrl} alt="Demo" className="w-full h-full object-cover" />
-                 <div className="absolute bottom-6 left-6 md:left-8 z-20">
-                    <h2 className="text-4xl font-black text-white mb-2 drop-shadow-lg">{project.title}</h2>
+                 
+                 {/* Modal Header Content */}
+                 <div className="absolute top-6 left-6 md:top-8 md:left-8 z-20">
+                   {project.status && (
+                     <span className={`inline-block border text-[10px] md:text-sm uppercase tracking-widest font-bold px-3 py-1.5 rounded-full backdrop-blur-md shadow-lg ${getTagColor(project.status)}`}>
+                       {project.status}
+                     </span>
+                   )}
+                 </div>
+
+                 <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-20 w-[90%] md:w-[80%]">
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-4 drop-shadow-2xl">{project.title}</h2>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((t) => (
-                        <span key={t} className="text-xs font-bold bg-white/10 backdrop-blur text-white px-3 py-1 rounded-full border border-white/10 shadow-sm">
+                        <span key={t} className="text-[10px] md:text-xs font-semibold bg-slate-800/80 text-cyan-300 px-3 py-1.5 rounded-full border border-slate-700/50 shadow-sm">
                           {t}
                         </span>
                       ))}
@@ -123,31 +149,33 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </div>
 
               <div className="p-6 md:p-8">
-                <div className="prose prose-invert max-w-none mb-8">
-                  <h3 className="text-lg font-bold text-brand-accent mb-2 uppercase tracking-wide">Sobre el proyecto</h3>
-                  <p className="text-slate-300 leading-relaxed text-lg">
+                <div className="text-left mb-10 w-full">
+                  <h3 className="text-sm md:text-lg font-bold text-brand-accent mb-4 uppercase tracking-widest">
+                    Sobre el proyecto
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed text-base md:text-xl font-light text-left">
                     {project.description || project.short}
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-slate-800">
+                <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-slate-800/80 mt-auto">
                   {project.private ? (
-                    <div className="w-full bg-yellow-500/10 border border-yellow-500/20 p-4 rounded-xl">
-                       <p className="text-sm text-yellow-200 mb-3 flex items-center gap-2 font-medium">
-                         <Lock size={16} /> Este repositorio es privado.
+                    <div className="w-full bg-yellow-500/5 border border-yellow-500/20 p-5 rounded-2xl backdrop-blur-sm">
+                       <p className="text-sm text-yellow-500 mb-4 flex items-center gap-2 font-medium">
+                         <Lock size={18} /> Este repositorio es privado por acuerdos de confidencialidad o desarrollo en curso.
                        </p>
-                       <div className="flex gap-3">
+                       <div className="flex flex-col sm:flex-row gap-3">
                           <button
                             onClick={handleCopyRequest}
-                            className="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-center text-sm"
+                            className="flex-1 bg-slate-800/80 hover:bg-slate-700 hover:text-white text-slate-300 font-medium py-3 px-4 rounded-xl transition-all duration-300 text-center text-sm border border-slate-600/50"
                           >
                             Copiar solicitud
                           </button>
                           <a
                              href={`mailto:${USER_INFO.email}?subject=Solicitud acceso repo ${project.title}`}
-                             className="flex-1 bg-brand-accent hover:bg-cyan-400 text-slate-900 font-bold py-2 px-4 rounded-lg transition-colors text-center flex items-center justify-center gap-2 text-sm"
+                             className="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold py-3 px-4 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] text-center flex items-center justify-center gap-2 text-sm shadow-lg"
                           >
-                             Enviar Email
+                             Solicitar Acceso por Email
                           </a>
                        </div>
                     </div>
@@ -158,20 +186,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                           href={project.demo}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex-1 bg-white text-brand-dark font-bold py-3 px-6 rounded-xl transition-all hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-white/5"
+                          className="flex-1 bg-gradient-to-r from-cyan-400 via-brand-accent to-purple-600 text-slate-900 font-bold py-3.5 px-6 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2 shadow-lg group/btn"
                         >
-                          <PlayCircle size={20} />
-                          Ver demo en vivo
+                          <ExternalLink size={22} className="group-hover/btn:scale-110 transition-transform" />
+                          Visitar Web
                         </a>
                       )}
                       <a
                         href={project.repo}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-xl border border-slate-600 transition-all hover:border-brand-accent flex items-center justify-center gap-2"
+                        className="flex-1 bg-transparent hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-xl border border-slate-600 hover:border-slate-400 transition-all duration-300 flex items-center justify-center gap-2 group/code"
                       >
-                        <Code2 size={20} />
-                        Ver código fuente
+                        <Github size={22} className="group-hover/code:rotate-6 transition-transform" />
+                        Ver Repositorio
                       </a>
                     </>
                   )}
