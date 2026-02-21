@@ -14,7 +14,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const toggleModal = () => setIsOpen(!isOpen);
 
   // Fallback for demo/thumb images using placeholder if local asset missing
-  // In a real scenario, use: `/assets/project-${project.slug}-thumb.png`
   const thumbUrl = project.image || `https://picsum.photos/seed/${project.slug}/800/600`;
 
   const handleCopyRequest = () => {
@@ -23,14 +22,33 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     alert('Mensaje copiado al portapapeles');
   };
 
+  // Dynamic Color Mapping for Premium Tags
+  const getTagColor = (status: string) => {
+    const s = status.toLowerCase();
+    if (s.includes('tfg')) {
+      return "text-purple-300 border-purple-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(168,85,247,0.3)]";
+    }
+    if (s.includes('desarrollo')) {
+      return "text-emerald-300 border-emerald-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(16,185,129,0.3)]";
+    }
+    if (s.includes('data') || s.includes('scraping')) {
+      return "text-amber-300 border-amber-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(245,158,11,0.3)]";
+    }
+    if (s.includes('api')) {
+      return "text-rose-300 border-rose-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(225,29,72,0.3)]";
+    }
+    // Default / Landing Page
+    return "text-cyan-300 border-cyan-500/40 bg-slate-950/80 shadow-[0_0_15px_rgba(6,182,212,0.3)]";
+  };
+
   return (
     <>
       <motion.div
-        className="group relative bg-slate-900/40 backdrop-blur-md border border-slate-700/50 rounded-2xl overflow-hidden hover:border-brand-accent/50 transition-all duration-500 shadow-xl hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] cursor-pointer flex flex-col h-full"
-        whileHover={{ y: -8 }}
+        className="group relative bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden hover:border-slate-500/50 transition-all duration-700 hover:shadow-[0_0_40px_rgba(56,189,248,0.1)] cursor-pointer flex flex-col h-full transform-gpu isolate"
+        whileHover={{ y: -5 }}
         onClick={toggleModal}
       >
-        <div className="h-52 overflow-hidden relative">
+        <div className="h-52 overflow-hidden relative rounded-t-2xl">
             {project.private ? (
                  <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center z-10 border-b border-slate-700/50">
                      <span className="flex items-center gap-2 text-slate-300 font-semibold border border-slate-600/50 bg-slate-800/50 px-4 py-2 rounded-full backdrop-blur-md">
@@ -38,36 +56,39 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                      </span>
                  </div>
             ) : null}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60 z-10" />
+          {/* Enhanced Image Overlay for Premium Depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 z-10 mix-blend-multiply" />
           <img
             src={thumbUrl}
             alt={project.title}
-            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${project.private ? 'blur-sm grayscale' : ''}`}
+            className={`w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03] ${project.private ? 'blur-sm grayscale' : ''}`}
             loading="lazy"
           />
-          <div className="absolute top-3 right-3 flex gap-2 z-20">
+          <div className="absolute top-4 right-4 flex gap-2 z-20">
             {project.status && (
-              <span className="bg-slate-900/80 backdrop-blur-md border border-brand-accent/30 text-brand-accent text-[10px] md:text-xs uppercase tracking-wider font-bold px-3 py-1 rounded-full shadow-lg">
+              <span className={`border text-[10px] md:text-[11px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full backdrop-blur-md transition-colors duration-300 ${getTagColor(project.status)}`}>
                 {project.status}
               </span>
             )}
           </div>
         </div>
 
-        <div className="p-6 flex flex-col flex-grow relative">
-          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">
+        <div className="p-6 md:p-8 flex flex-col flex-grow relative z-20">
+          <h3 className="text-2xl md:text-3xl font-black text-white mb-3 group-hover:text-brand-accent transition-colors duration-500 drop-shadow-md">
             {project.title}
           </h3>
-          <p className="text-slate-400 text-sm mb-5 flex-grow leading-relaxed">{project.short}</p>
+          <p className="text-slate-400 text-sm md:text-base mb-6 flex-grow leading-relaxed font-light">
+            {project.short}
+          </p>
           
           <div className="flex flex-wrap gap-2 mt-auto">
             {project.tech.slice(0, 3).map((t) => (
-              <span key={t} className="text-xs font-medium bg-slate-800/80 text-cyan-300 px-3 py-1.5 rounded-full border border-slate-700/50">
+              <span key={t} className="text-[10px] md:text-xs font-semibold bg-slate-800/80 text-cyan-300 px-3 py-1.5 rounded-full border border-slate-700/50 group-hover:bg-slate-800 transition-colors shadow-sm">
                 {t}
               </span>
             ))}
             {project.tech.length > 3 && (
-               <span className="text-xs font-medium bg-slate-800/80 text-slate-400 px-3 py-1.5 rounded-full border border-slate-700/50">
+               <span className="text-[10px] md:text-xs font-semibold bg-slate-800/50 text-slate-400 px-3 py-1.5 rounded-full border border-slate-700/30">
                 +{project.tech.length - 3}
               </span>
             )}
