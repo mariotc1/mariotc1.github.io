@@ -150,8 +150,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
               <div className="p-6 md:p-8">
                 <div className="text-left mb-10 w-full">
-                  <h3 className="text-sm md:text-lg font-bold text-brand-accent mb-4 uppercase tracking-widest flex items-center gap-2 justify-start">
-                    <span className="w-8 h-px bg-brand-accent"></span> Sobre el proyecto
+                  <h3 className="text-sm md:text-lg font-bold text-brand-accent mb-4 uppercase tracking-widest">
+                    Sobre el proyecto
                   </h3>
                   <p className="text-slate-300 leading-relaxed text-base md:text-xl font-light text-left">
                     {project.description || project.short}
