@@ -9,7 +9,8 @@ import {
   Code, 
   Database, 
   Terminal,
-  ExternalLink
+  ExternalLink,
+  MessageCircle
 } from 'lucide-react';
 import Hero3D from './components/Hero3D';
 import ProjectCard from './components/ProjectCard';
@@ -304,38 +305,56 @@ function App() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-4xl mx-auto scroll-mt-32 text-center pb-20">
-          <div className="relative bg-gradient-to-b from-slate-800 to-slate-900 border border-slate-700 p-12 rounded-[2.5rem] overflow-hidden shadow-2xl">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+        <section id="contact" className="max-w-4xl mx-auto scroll-mt-32 text-center pb-12 mt-20 px-4 md:px-0">
+          <div className="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 p-8 md:p-14 rounded-[2.5rem] overflow-hidden shadow-[0_0_50px_rgba(6,182,212,0.05)] isolate group/contact">
+            {/* Cyber Glow Accent */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
             
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">¿Trabajamos juntos?</h2>
-              <p className="text-slate-300 mb-10 max-w-lg mx-auto text-lg leading-relaxed">
-                Estoy buscando activamente una <span className="text-brand-accent font-semibold">oportunidad como desarrollador junior</span> donde pueda aportar valor desde el primer día y crecer dentro de un equipo técnico.
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">¿Trabajamos juntos?</h2>
+              
+              <p className="text-slate-300 mb-10 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-light">
+                Busco integrarme en un equipo técnico donde <strong className="text-white font-semibold">aportar valor desde el primer día</strong>. Soy flexible, mantengo un aprendizaje continuo mediante proyectos propios y me adapto rápido a nuevos stacks. ¿Hablamos?
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+                
+                {/* Email Button */}
                 <a 
                   href={`mailto:${USER_INFO.email}`} 
-                  className="group flex items-center gap-3 px-8 py-4 bg-white text-slate-900 font-bold rounded-xl transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] w-full sm:w-auto justify-center"
+                  className="group flex flex-1 w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]"
                 >
-                  <Mail className="text-slate-900" />
-                  <span>Enviar Email</span>
+                  <Mail className="group-hover:scale-110 transition-transform" />
+                  <span>Email</span>
                 </a>
+
+                {/* LinkedIn Button (Glassmorphism) */}
                 <a 
                   href={USER_INFO.linkedin} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="flex items-center gap-3 px-8 py-4 bg-[#0077b5] hover:bg-[#006396] text-white font-bold rounded-xl transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,119,181,0.4)] w-full sm:w-auto justify-center"
+                  className="group flex flex-1 w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 bg-[#0A66C2]/10 backdrop-blur-md border border-[#0A66C2]/30 text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white font-bold rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(10,102,194,0.4)]"
                 >
-                  <Linkedin />
+                  <Linkedin className="group-hover:scale-110 transition-transform" />
                   <span>LinkedIn</span>
                 </a>
+
+                {/* WhatsApp Button (Glassmorphism) */}
+                <a 
+                  href="https://wa.me/34644071074" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="group flex flex-1 w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 bg-[#25D366]/10 backdrop-blur-md border border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366] hover:text-white font-bold rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(37,211,102,0.4)]"
+                >
+                  {/* Simplest solid Chat icon alternative to whatsapp icon to avoid missing lucide icon errors */}
+                  <MessageCircle className="group-hover:scale-110 transition-transform" />
+                  <span>WhatsApp</span>
+                </a>
+
               </div>
 
-              <p className="text-sm text-slate-500">
-                Respondo habitualmente en menos de 24 horas.
+              <p className="text-sm text-slate-500 font-mono">
+                &gt; Respondo habitualmente en menos de 24 horas _
               </p>
             </div>
           </div>
