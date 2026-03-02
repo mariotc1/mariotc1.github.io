@@ -367,18 +367,22 @@ function App() {
 
       </main>
 
-      <footer className="border-t border-slate-800 bg-slate-950 py-12">
+      <footer className="border-t border-slate-800 bg-slate-950/50 py-8 backdrop-blur-lg">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-400 mb-4">
-             Desarrollado por <strong className="text-white">{USER_INFO.name}</strong>
-          </p>
-          <div className="text-slate-600 text-sm flex justify-center gap-4">
-             <span>React 18</span>
-             <span>•</span>
-             <span>TailwindCSS</span>
-             <span>•</span>
-             <span>Three.js</span>
+          <div className="flex justify-center gap-6 mb-6">
+            <a href={USER_INFO.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white hover:scale-110 transition-all duration-300">
+              <Github size={24} />
+            </a>
+            <a href={USER_INFO.linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white hover:scale-110 transition-all duration-300">
+              <Linkedin size={24} />
+            </a>
+            <a href={`mailto:${USER_INFO.email}`} className="text-slate-400 hover:text-white hover:scale-110 transition-all duration-300">
+              <Mail size={24} />
+            </a>
           </div>
+          <p className="text-slate-500 text-sm font-mono">
+            &copy; {new Date().getFullYear()} | Diseñado y desarrollado por {USER_INFO.name}
+          </p>
         </div>
       </footer>
     </div>
