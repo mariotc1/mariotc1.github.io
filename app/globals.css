@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color — dark, blue, elegant. Derived from Mario's real brand gradient asset. */
+  --color-background: #04070d;
+  --color-background-secondary: #070d1a;
+  --color-surface: #0b1424;
+  --color-surface-elevated: #111e33;
+  --color-text-primary: #f4f6fb;
+  --color-text-secondary: #aebbd1;
+  --color-text-muted: #64738c;
+  --color-accent: #3684e6;
+  --color-accent-strong: #0b60ba;
+  --color-accent-soft: #7db0ee;
+  --color-border: #18233a;
+
+  /* Typography */
+  --font-sans: var(--font-inter);
+  --font-brand: var(--font-display);
+
+  /* Breakpoints kept at Tailwind defaults; extended container widths */
+  --breakpoint-3xl: 1920px;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Motion system — every animation on the site draws from this shared physics. */
+  --motion-fast: 150ms;
+  --motion-normal: 350ms;
+  --motion-slow: 650ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent-strong);
+  color: var(--color-text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-soft);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.brand-gradient-surface {
+  position: relative;
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(
+      60% 58% at 50% 40%,
+      rgba(54, 132, 230, 0.65) 0%,
+      rgba(11, 96, 186, 0.36) 38%,
+      rgba(4, 7, 13, 0) 76%
+    ),
+    linear-gradient(
+      180deg,
+      var(--color-background) 0%,
+      #0c2a5c 42%,
+      #0c2a5c 56%,
+      var(--color-background) 100%
+    );
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

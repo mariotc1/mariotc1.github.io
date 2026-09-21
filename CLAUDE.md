@@ -2255,3 +2255,4 @@ Sólo pregunta a Mario cuando falte información que pueda cambiar materialmente
 El resultado final debe ser:
 
 **un portfolio personal premium, rápido, accesible, responsive, mantenible, SEO-ready y visualmente distintivo que funcione como el núcleo digital de la marca personal de Mario Tomé Core.**
+
