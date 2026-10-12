@@ -40,39 +40,34 @@ accesibilidad.
 - **Prioridad:** Alta (nombre, ya recibido pero con el fallo de opacidad) /
   Media ("Dream Big", pendiente de dibujar).
 
-## 2. Screenshots de EduFinder CYL
+## 2. ✅ Portada de EduFinder CYL (recibida)
 
-- **Formato:** PNG o WebP
-- **Resolución recomendada:** 2400×1500 (o similar 16:10), más 2–3 capturas adicionales para la galería
-- **Ubicación:** `public/images/projects/edufinder-cyl/`
-- **Sección:** Selected Work (home) + case study `/projects/edufinder-cyl`
-- **Prioridad:** Alta (es el proyecto ancla del portfolio)
-- **Motivo:** actualmente se usa una tarjeta editorial de marcador de posición (gradiente + número + título) en vez de un pantallazo real del producto.
+- **Recibido:** `Portadas Proyectos/EduFinder.jpeg` (3600×2016, 16:9) → optimizada
+  a `public/images/projects/edufinder-cyl/cover.webp` (2048×1152, WebP) e
+  integrada como preview en Selected Work y en la case study.
+- **Pendiente (opcional):** 2–3 capturas adicionales para la galería interna del
+  case study. Ubicación: `public/images/projects/edufinder-cyl/`. Prioridad: Media.
 
-## 3. Screenshots / material de PlanCine
+## 3. ✅ Portada de PlanCine (recibida)
 
-- **Formato:** PNG o WebP
-- **Resolución recomendada:** 2400×1500
-- **Ubicación:** `public/images/projects/plancine/`
-- **Sección:** Selected Work + case study `/projects/plancine`
-- **Prioridad:** Media
-- **Motivo:** el proyecto está marcado como "en construcción" con descripción mínima a propósito, para no inventar stack ni funcionalidades no confirmadas. Cuando el producto avance, necesito: stack tecnológico definitivo, funcionalidades reales, capturas y (si procede) URL pública/GitHub.
+- **Recibido:** `Portadas Proyectos/PlanCine.jpeg` (3600×2016, 16:9) → optimizada a
+  `public/images/projects/plancine/cover.webp` (2048×1152, WebP).
+- **Pendiente:** stack tecnológico definitivo, funcionalidades reales y (si
+  procede) URL pública/GitHub, para completar la case study sin inventar datos.
 
-## 4. Screenshots de Fantasy XI Assistant
+## 4. ✅ Portada de Fantasy XI Assistant (recibida)
 
-- **Formato:** PNG o WebP
-- **Resolución recomendada:** 2400×1500 (interfaz Streamlit) + 1 ejemplo del PDF exportado
-- **Ubicación:** `public/images/projects/fantasy-xi-assistant/`
-- **Sección:** case study `/projects/fantasy-xi-assistant`
-- **Prioridad:** Media
+- **Recibido:** `Portadas Proyectos/FantasyAssistant.jpeg` (3586×2014, 16:9) →
+  `public/images/projects/fantasy-xi-assistant/cover.webp` (2048×1152, WebP).
+- **Pendiente (opcional):** 1 ejemplo del PDF exportado para la galería.
+  Prioridad: Baja.
 
-## 5. Screenshots de PomodoroProApp
+## 5. ✅ Portada de PomodoroProApp (recibida)
 
-- **Formato:** PNG o WebP (capturas reales de iPhone)
-- **Resolución recomendada:** capturas nativas de iOS (ej. 1290×2796) o mockup del dispositivo
-- **Ubicación:** `public/images/projects/pomodoroproapp/`
-- **Sección:** case study `/projects/pomodoroproapp`
-- **Prioridad:** Media
+- **Recibido:** `Portadas Proyectos/PomodoroProApp.jpeg` (3592×2016, 16:9) →
+  `public/images/projects/pomodoroapp/cover.webp` (2048×1152, WebP).
+- **Pendiente (opcional):** capturas nativas de iPhone para la galería interna.
+  Prioridad: Baja.
 
 ## 6. Foto de perfil en mayor resolución (opcional)
 

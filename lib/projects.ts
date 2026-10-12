@@ -10,6 +10,8 @@ export interface Project {
   year: string;
   technologies: BrandIconKey[];
   technologiesLabel: string[];
+  image?: string;
+  imageAlt?: string;
   featured: boolean;
   role: string;
   problem?: string;
@@ -26,6 +28,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "edufinder-cyl",
+    image: "/images/projects/edufinder-cyl/cover.webp",
+    imageAlt: "Portada del proyecto EduFinder CYL",
     number: "01",
     title: "EduFinder CYL",
     shortDescription:
@@ -63,6 +67,8 @@ export const projects: Project[] = [
   },
   {
     slug: "plancine",
+    image: "/images/projects/plancine/cover.webp",
+    imageAlt: "Portada del proyecto PlanCine",
     number: "02",
     title: "PlanCine",
     shortDescription:
@@ -81,6 +87,8 @@ export const projects: Project[] = [
   },
   {
     slug: "fantasy-xi-assistant",
+    image: "/images/projects/fantasy-xi-assistant/cover.webp",
+    imageAlt: "Portada del proyecto Fantasy XI Assistant",
     number: "03",
     title: "Fantasy XI Assistant",
     shortDescription:
@@ -124,6 +132,8 @@ export const projects: Project[] = [
   },
   {
     slug: "pomodoroproapp",
+    image: "/images/projects/pomodoroapp/cover.webp",
+    imageAlt: "Portada del proyecto PomodoroProApp",
     number: "04",
     title: "PomodoroProApp",
     shortDescription:

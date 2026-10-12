@@ -56,20 +56,26 @@ para Motion, valores directos en GSAP):
 **División de responsabilidades (brief, sección 8):**
 - **Motion** (`motion/react`) → microinteracciones: hover, botón magnético,
   reveal de contenido al entrar en viewport, menú móvil.
-- **GSAP + ScrollTrigger** → storytelling de scroll: el showcase de proyectos
-  (`components/projects/ProjectShowcase.tsx`) usa `position: sticky` (CSS) para
-  el apilado de paneles y ScrollTrigger con `scrub` para animar la entrada
-  (escala del preview + fade de la metadata) dentro del rango de scroll de
-  cada proyecto. Sin `pin` de GSAP: el sticky nativo ya resuelve el apilado,
-  lo que degrada mejor sin JS y es más barato en móvil.
+- **Motion** (`motion/react`) → el showcase de proyectos
+  (`components/projects/ProjectShowcase.tsx`) es un **carrusel de una
+  diapositiva a la vez**: un track animado con `animate()` y un easing
+  "expo-out" largo y suave (0.9 s) para que el paso entre proyectos se
+  sienta premium, nunca un salto. Se navega con flechas, puntos, teclado
+  (←/→) y arrastre (`drag="x"` con inercia controlada), mientras el scroll
+  vertical de la página sigue su curso normal. La diapositiva activa se
+  resalta con un fade + desplazamiento sutil y las inactivas bajan a
+  `opacity` reducida. Las portadas de cada proyecto viven en
+  `public/images/projects/<slug>/cover.webp` (16:9, WebP).
+- **GSAP + ScrollTrigger** → reservado para storytelling de scroll. Hoy no
+  hace pinning: solo aporta el ticker que sincroniza Lenis.
 - **Lenis** → smooth scroll global, sincronizado con el ticker de GSAP.
 
 **Reduced motion (brief, sección 29):** `MotionConfig reducedMotion="user"`
 (en `SmoothScrollProvider`) neutraliza automáticamente todas las animaciones
 de Motion cuando el sistema operativo tiene activado "reducir movimiento".
 Lenis y el scrub de GSAP se desactivan explícitamente vía
-`useReducedMotion()` (media query `prefers-reduced-motion`), dejando el
-showcase de proyectos en su estado final estático pero perfectamente legible.
+`useReducedMotion()` (media query `prefers-reduced-motion`), y el carrusel de
+proyectos pasa a salto instantáneo sin gliding, manteniéndose navegable.
 
 ## Spacing y radios
 
