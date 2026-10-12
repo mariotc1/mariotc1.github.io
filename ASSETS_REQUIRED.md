@@ -30,6 +30,11 @@ accesibilidad.
 - **Siguiente prioridad:** un logotipo de **"Dream Big"** en el mismo estilo
   — es la frase de marca que más se repite (footer + CTA final de Contact) y
   el segundo elemento de identidad más importante después del nombre.
+- **Recibidos también:** los wordmarks de los **4 títulos de proyecto**
+  (`EduFinderCyL.png`, `PlanCine.png`, `XiFantasyAssistant.png`,
+  `PomodoroProApp.png`), sin fondo. Procesados (recorte al trazo + altura
+  normalizada) en `public/images/projects/<slug>/title.webp` e integrados ya en
+  la home y en las case studies.
 - **Formato:** PNG con fondo transparente (o SVG si el trazo se puede
   vectorizar), trazo a opacidad completa.
 - **Resolución recomendada:** al menos 1200px de ancho para que no pixele en pantallas grandes/retina.

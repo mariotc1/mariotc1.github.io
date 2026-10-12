@@ -39,6 +39,12 @@ del sitio es plano y oscuro a propósito, para no saturar.
   nombre "Mario Tomé Core", títulos de sección, y el CTA final "Dream Big".
   Nunca en párrafos, navegación, botones pequeños o metadata.
 
+- Los **títulos de proyecto** (home y case studies) usan los wordmarks dibujados
+  a mano de Mario (`public/images/projects/<slug>/title.webp`) a través de
+  `components/projects/ProjectTitleMark.tsx`, dentro de su `<h1>`/`<h3>` real y
+  con el título como `alt`. Las imágenes se procesan sin fondo, recortadas al
+  trazo y **normalizadas a la misma altura** para que se lean como texto.
+
 ## Motion
 
 Tokens en `:root` (`globals.css`) y su espejo en JS (`lib/motion-tokens.ts`

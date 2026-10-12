@@ -12,6 +12,7 @@ export interface Project {
   technologiesLabel: string[];
   image?: string;
   imageAlt?: string;
+  titleImage?: { src: string; width: number; height: number };
   featured: boolean;
   role: string;
   problem?: string;
@@ -30,6 +31,7 @@ export const projects: Project[] = [
     slug: "edufinder-cyl",
     image: "/images/projects/edufinder-cyl/cover.webp",
     imageAlt: "Portada del proyecto EduFinder CYL",
+    titleImage: { src: "/images/projects/edufinder-cyl/title.webp", width: 556, height: 104 },
     number: "01",
     title: "EduFinder CYL",
     shortDescription:
@@ -69,6 +71,7 @@ export const projects: Project[] = [
     slug: "plancine",
     image: "/images/projects/plancine/cover.webp",
     imageAlt: "Portada del proyecto PlanCine",
+    titleImage: { src: "/images/projects/plancine/title.webp", width: 447, height: 104 },
     number: "02",
     title: "PlanCine",
     shortDescription:
@@ -89,6 +92,7 @@ export const projects: Project[] = [
     slug: "fantasy-xi-assistant",
     image: "/images/projects/fantasy-xi-assistant/cover.webp",
     imageAlt: "Portada del proyecto Fantasy XI Assistant",
+    titleImage: { src: "/images/projects/fantasy-xi-assistant/title.webp", width: 729, height: 104 },
     number: "03",
     title: "Fantasy XI Assistant",
     shortDescription:
@@ -134,6 +138,7 @@ export const projects: Project[] = [
     slug: "pomodoroproapp",
     image: "/images/projects/pomodoroapp/cover.webp",
     imageAlt: "Portada del proyecto PomodoroProApp",
+    titleImage: { src: "/images/projects/pomodoroapp/title.webp", width: 626, height: 104 },
     number: "04",
     title: "PomodoroProApp",
     shortDescription:

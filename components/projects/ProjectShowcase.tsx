@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BrandIconGlyph } from "@/components/ui/BrandIconGlyph";
 import { ProjectPreview } from "@/components/projects/ProjectPreview";
+import { ProjectTitleMark } from "@/components/projects/ProjectTitleMark";
 import { motionTokens } from "@/lib/motion-tokens";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { projects, type Project } from "@/lib/projects";
@@ -212,8 +213,10 @@ function ProjectPanel({ project, isActive }: { project: Project; isActive: boole
     >
       <div className="order-2 md:order-1">
         <span className="font-mono text-sm text-accent-soft">Project {project.number}</span>
-        <h3 className="mt-3 font-brand text-4xl text-text-primary sm:text-5xl">{project.title}</h3>
-        <p className="mt-5 max-w-md text-base leading-relaxed text-text-secondary sm:text-lg">
+        <h3 className="mt-3">
+          <ProjectTitleMark project={project} size="md" />
+        </h3>
+        <p className="mt-4 max-w-md text-base leading-relaxed text-text-secondary sm:text-lg">
           {project.shortDescription}
         </p>
 

@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { BrandIconGlyph } from "@/components/ui/BrandIconGlyph";
 import { ProjectPreview } from "@/components/projects/ProjectPreview";
+import { ProjectTitleMark } from "@/components/projects/ProjectTitleMark";
 import { Reveal } from "@/components/motion/Reveal";
 import type { Project } from "@/lib/projects";
 
@@ -48,10 +49,10 @@ export function ProjectCaseStudy({
           <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
               <span className="font-mono text-sm text-accent-soft">{project.number}</span>
-              <h1 className="mt-3 font-brand text-5xl leading-[1.02] text-text-primary sm:text-6xl">
-                {project.title}
+              <h1 className="mt-3">
+                <ProjectTitleMark project={project} size="lg" />
               </h1>
-              <p className="mt-6 max-w-lg text-lg leading-relaxed text-text-secondary">
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-text-secondary">
                 {project.description}
               </p>
 
@@ -141,7 +142,9 @@ export function ProjectCaseStudy({
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted">
               Next project
             </p>
-            <p className="mt-2 font-brand text-3xl text-text-primary">{next.title}</p>
+            <div className="mt-2 max-w-xs">
+              <ProjectTitleMark project={next} size="sm" />
+            </div>
           </div>
           <Link
             href={`/projects/${next.slug}`}
