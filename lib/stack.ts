@@ -45,7 +45,7 @@ export const stackGroups: StackGroup[] = [
     ],
   },
   {
-    label: "Data & Infrastructure",
+    label: "DevOps",
     items: [
       { name: "PostgreSQL", icon: "postgresql" },
       { name: "MySQL", icon: "mysql" },

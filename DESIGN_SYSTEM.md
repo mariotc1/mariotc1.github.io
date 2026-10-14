@@ -96,6 +96,13 @@ proyectos pasa a salto instantáneo sin gliding, manteniéndose navegable.
 
 - `ui/Container`, `ui/SectionHeading`, `ui/Button`, `ui/BrandIconGlyph`
 - `motion/Reveal` (fade + slide-in al entrar en viewport), `motion/MagneticButton`
+- `stack/StackSection` — tarjetas por grupo (una por dominio) con el mismo
+  lenguaje físico que las portadas de proyecto: borde `border-border`, borde
+  superior iluminado (hairline), glow de marca al hover y chips como tokens.
+  Sin frase descriptiva: el título de la sección ya explica qué es. Ancho fijo
+  por tarjeta con `flex-wrap justify-center`, de modo que una última fila
+  incompleta (5 grupos en 3 columnas) queda centrada y no colgando a la
+  izquierda — y aguanta si se añaden más grupos.
 - Iconografía de marcas tecnológicas: `lib/brand-icons.ts`, paths oficiales
   extraídos de Simple Icons (CC0) e incrustados como SVG propio — sin añadir
   la librería completa como dependencia de runtime. Iconografía funcional
