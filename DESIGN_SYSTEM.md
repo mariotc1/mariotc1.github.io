@@ -112,6 +112,8 @@ proyectos pasa a salto instantáneo sin gliding, manteniéndose navegable.
   monocromo blanco (`public/images/companies/<slug>/logo.webp`, procesado a
   partir del original: fondo eliminado, forzado a blanco, recortado y
   normalizado) dentro de la placa oscura; si no hay logo, cae a las iniciales.
+  Cierra con una línea compacta de **Formación** (solo DAW y DAM) para no añadir
+  scroll: la experiencia práctica manda, la formación acompaña.
 - Iconografía de marcas tecnológicas: `lib/brand-icons.ts`, paths oficiales
   extraídos de Simple Icons (CC0) e incrustados como SVG propio — sin añadir
   la librería completa como dependencia de runtime. Iconografía funcional

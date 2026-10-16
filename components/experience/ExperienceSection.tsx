@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
-import { experience } from "@/lib/experience";
+import { experience, education } from "@/lib/experience";
 import { siteConfig, hasLink } from "@/lib/site-config";
 
 /** "Proxima Systems" → "PS", "db Inmuebles…" → "DI". Used as a lightweight logo. */
@@ -105,10 +105,7 @@ export function ExperienceSection() {
                         </div>
                       </div>
 
-                      <span className="inline-flex items-center gap-2 font-mono text-sm text-text-muted sm:whitespace-nowrap">
-                        {item.current ? (
-                          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
-                        ) : null}
+                      <span className="font-mono text-sm text-text-muted sm:whitespace-nowrap">
                         {item.period}
                       </span>
                     </div>
@@ -128,6 +125,14 @@ export function ExperienceSection() {
               </li>
             ))}
           </ol>
+        </div>
+
+        {/* Formación: una sola línea, solo lo que aporta (DAW y DAM) — mínimo scroll */}
+        <div className="mt-8 flex flex-col gap-2 border-t border-border pt-6 sm:flex-row sm:items-baseline sm:gap-5">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted">
+            Formación
+          </span>
+          <p className="text-sm text-text-secondary">{education.join(" · ")}</p>
         </div>
 
         {hasLink(siteConfig.links.linkedin) ? (
