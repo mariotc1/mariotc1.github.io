@@ -55,7 +55,7 @@ export function Hero() {
             variants={item}
             className="mt-2 text-base tracking-wide text-white/90 sm:text-lg"
           >
-            Python Backend · Web · Mobile · Desktop
+            Python | Automation, Testing & Computer Vision | Web, Mobile & Desktop
           </motion.p>
 
           <motion.p

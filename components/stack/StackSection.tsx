@@ -8,7 +8,7 @@ export function StackSection() {
   return (
     <section id="stack" className="scroll-mt-20 bg-background-secondary py-28 sm:py-36">
       <Container>
-        <SectionHeading eyebrow="Stack" title="Herramientas que uso para construir." />
+        <SectionHeading eyebrow="Stack" title="Herramientas que uso para construir" />
 
         {/*
           Ancho fijo por tarjeta + `justify-center` para que una última fila

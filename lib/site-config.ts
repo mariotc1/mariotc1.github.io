@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Mario Tomé Core",
   brandLine: "Dream Big",
   role: "Software Developer",
-  tagline: "Python Backend · Web · Mobile · Desktop",
+  tagline: "Python | Automation, Testing & Computer Vision | Web, Mobile & Desktop",
   positioning:
     "Python Backend Developer | Software Developer | Web, Mobile & Desktop | APIs & Automation",
   location: "Valladolid, Castilla y León, España",

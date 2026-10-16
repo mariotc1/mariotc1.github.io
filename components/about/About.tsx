@@ -10,7 +10,7 @@ export function About() {
   return (
     <section id="about" className="scroll-mt-20 bg-background py-28 sm:py-36">
       <Container>
-        <SectionHeading eyebrow="Sobre mí" title="Desarrollo software con criterio." />
+        <SectionHeading eyebrow="Sobre mí" title="Desarrollo software con criterio" />
 
         <div className="mt-14 flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-10">
           <Reveal className="lg:w-[320px] lg:shrink-0">

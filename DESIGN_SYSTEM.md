@@ -36,14 +36,18 @@ del sitio es plano y oscuro a propósito, para no saturar.
 - `--font-sans` → Inter (`next/font/google`), cuerpo de texto, navegación, UI.
 - `--font-brand` → marcador de posición **Bricolage Grotesque** hasta recibir
   la tipografía real "Dream Big" (ver `ASSETS_REQUIRED.md`). Se usa solo para:
-  nombre "Mario Tomé Core", títulos de sección, y el CTA final "Dream Big".
-  Nunca en párrafos, navegación, botones pequeños o metadata.
+  nombre "Mario Tomé Core" y títulos de sección. Nunca en párrafos, navegación,
+  botones pequeños o metadata. El CTA final **no** usa la fuente: encabeza con
+  el wordmark dibujado a mano `Construyamos algo juntos` (imagen).
 
 - Los **títulos de proyecto** (home y case studies) usan los wordmarks dibujados
   a mano de Mario (`public/images/projects/<slug>/title.webp`) a través de
   `components/projects/ProjectTitleMark.tsx`, dentro de su `<h1>`/`<h3>` real y
   con el título como `alt`. Las imágenes se procesan sin fondo, recortadas al
-  trazo y **normalizadas a la misma altura** para que se lean como texto.
+  trazo y **normalizadas a la misma altura** para que se lean como texto. El
+  mismo tratamiento (limpieza de alfa, recorte al trazo) se aplica a los wordmarks
+  de `public/images/wordmarks/` — marca del Hero, "Descubre mis redes" del About
+  y el titular del CTA final.
 
 ## Motion
 
@@ -114,6 +118,19 @@ proyectos pasa a salto instantáneo sin gliding, manteniéndose navegable.
   normalizado) dentro de la placa oscura; si no hay logo, cae a las iniciales.
   Cierra con una línea compacta de **Formación** (solo DAW y DAM) para no añadir
   scroll: la experiencia práctica manda, la formación acompaña.
+- `contact/ContactSection` — CTA final sobre `.brand-gradient-surface`. Encabeza
+  con el wordmark dibujado a mano **"Construyamos algo juntos"**
+  (`public/images/wordmarks/construyamos-algo-juntos.webp`) dentro de un `<h2>`
+  real, con el texto como `alt` y `block h-auto w-full` (sin hueco de línea).
+  Debajo, un mensaje **cercano y no imperativo** (evita "escríbeme") y las
+  acciones (WhatsApp / Email) seguidas de LinkedIn y GitHub **ambos con icono**
+  (WhatsApp usa el icono real de marca, `brandIcons.whatsapp`). Ocupa la vista
+  completa (`min-h-[100svh]` + `items-center`) para leerse como una vista final
+  propia y que no asome la sección anterior. Sin "Dream Big" ni etiquetas: el
+  gancho es el propio wordmark.
+- `layout/Footer` — deliberadamente mínimo: una sola línea con copyright y
+  ubicación. Sin redes ni marca repetida, para no restar protagonismo al CTA
+  (las redes viven ya en el CTA y en "Descubre mis redes" del About).
 - Iconografía de marcas tecnológicas: `lib/brand-icons.ts`, paths oficiales
   extraídos de Simple Icons (CC0) e incrustados como SVG propio — sin añadir
   la librería completa como dependencia de runtime. Iconografía funcional

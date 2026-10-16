@@ -24,7 +24,7 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="scroll-mt-20 bg-background py-28 sm:py-36">
       <Container>
-        <SectionHeading eyebrow="Experience" title="Trayectoria profesional." />
+        <SectionHeading eyebrow="Experience" title="Trayectoria profesional" />
 
         <div className="relative mt-12">
           {/* Timeline rail — fades out at the end so it feels intentional, not clipped */}

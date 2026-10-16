@@ -114,8 +114,8 @@ export function ProjectShowcase() {
       <Container>
         <SectionHeading
           eyebrow="Selected Work"
-          title="Proyectos que demuestran cómo construyo."
-          description="Una selección de los proyectos que he ido construyendo y de los que más he aprendido, en una lista que sigue creciendo."
+          title="Proyectos que demuestran cómo construyo"
+          description="Una selección de los proyectos que he ido desarrollando y de los que más he aprendido, en una lista que sigue creciendo."
         />
       </Container>
 
