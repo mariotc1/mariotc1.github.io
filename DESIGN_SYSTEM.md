@@ -103,6 +103,15 @@ proyectos pasa a salto instantáneo sin gliding, manteniéndose navegable.
   por tarjeta con `flex-wrap justify-center`, de modo que una última fila
   incompleta (5 grupos en 3 columnas) queda centrada y no colgando a la
   izquierda — y aguanta si se añaden más grupos.
+- `experience/ExperienceSection` — línea de tiempo (rail con degradado que se
+  difumina) con un nodo por etapa; el rol actual se marca con nodo en acento +
+  halo. Cada etapa es una tarjeta con el mismo lenguaje físico (borde, hairline,
+  glow al hover), monograma de iniciales como logo ligero, rol, periodo y áreas
+  como chips. Si `ExperienceItem.url` existe, el nombre de la empresa enlaza a su
+  web pública (nunca URLs internas, ver brief). Cada empresa muestra su logo
+  monocromo blanco (`public/images/companies/<slug>/logo.webp`, procesado a
+  partir del original: fondo eliminado, forzado a blanco, recortado y
+  normalizado) dentro de la placa oscura; si no hay logo, cae a las iniciales.
 - Iconografía de marcas tecnológicas: `lib/brand-icons.ts`, paths oficiales
   extraídos de Simple Icons (CC0) e incrustados como SVG propio — sin añadir
   la librería completa como dependencia de runtime. Iconografía funcional
