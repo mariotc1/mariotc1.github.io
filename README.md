@@ -36,18 +36,19 @@ app/
   page.tsx               Home (Hero → About → Work → Stack → Experience → Contact)
   projects/[slug]/        Case study de cada proyecto (generateStaticParams)
   sitemap.ts, robots.ts   SEO
-  icon.tsx, apple-icon.tsx, opengraph-image.tsx   Generados con next/og
+  icon.jpg, apple-icon.png, favicon.ico   Icono del sitio (foto de perfil)
+  opengraph-image.tsx     Imagen social (generateImageMetadata + next/og)
 
 components/
   hero/, about/, projects/, stack/, experience/, contact/   Secciones
   navigation/, layout/    Navbar, Footer, smooth scroll provider
   motion/                 Reveal, MagneticButton (Motion)
-  ui/                     Container, Button, SectionHeading, BrandIconGlyph
+  ui/                     Container, AnchorLink, Button, SectionHeading, BrandIconGlyph
 
 lib/
   projects.ts, experience.ts, stack.ts, site-config.ts   Contenido estructurado
   brand-icons.ts          Paths SVG oficiales de marcas tecnológicas
-  gsap.ts, motion-tokens.ts, use-reduced-motion.ts        Motion system
+  gsap.ts, smooth-scroll.ts, motion-tokens.ts, use-reduced-motion.ts   Motion system
 ```
 
 Añadir un proyecto nuevo = un objeto más en `lib/projects.ts`. No hace falta

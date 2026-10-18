@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { AnchorLink } from "@/components/ui/AnchorLink";
 import { type ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
@@ -37,8 +37,8 @@ export function Button({
   }
 
   return (
-    <Link href={href} className={classes}>
+    <AnchorLink href={href} className={classes}>
       {children}
-    </Link>
+    </AnchorLink>
   );
 }

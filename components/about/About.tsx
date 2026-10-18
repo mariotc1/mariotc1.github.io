@@ -8,7 +8,7 @@ import { siteConfig, hasLink } from "@/lib/site-config";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-20 bg-background py-28 sm:py-36">
+    <section id="about" className="bg-background py-28 sm:py-36">
       <Container>
         <SectionHeading eyebrow="Sobre mí" title="Desarrollo software con criterio" />
 

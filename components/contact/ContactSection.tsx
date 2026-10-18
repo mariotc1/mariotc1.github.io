@@ -14,7 +14,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="brand-gradient-surface scroll-mt-20 relative flex min-h-[100svh] items-center overflow-hidden py-24"
+      className="brand-gradient-surface relative flex min-h-[100svh] items-center overflow-hidden py-24"
     >
       <Container className="relative z-10 text-center">
         <Reveal>

@@ -4,6 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import Lenis from "lenis";
 import { MotionConfig } from "motion/react";
 import { getGsap } from "@/lib/gsap";
+import { registerLenis } from "@/lib/smooth-scroll";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
@@ -20,6 +21,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       smoothWheel: true,
     });
     lenisRef.current = lenis;
+    registerLenis(lenis);
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -33,6 +35,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       gsap.ticker.remove(tick);
       lenis.destroy();
       lenisRef.current = null;
+      registerLenis(null);
     };
   }, [reducedMotion]);
 

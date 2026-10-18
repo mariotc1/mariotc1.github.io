@@ -36,6 +36,19 @@
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
+
+  /* Fixed navigation bar. `--header-height` is the bar itself (h-16 = 4rem);
+     `--header-clearance` adds the 1px bottom border and the SCROLL_GAP of
+     breathing room (24px). Sections use it as `scroll-margin-top`, so a native
+     #hash jump lands exactly where the eased nav scroll does. */
+  --header-height: 4rem;
+  --header-clearance: calc(var(--header-height) + 25px);
+}
+
+/* Anchored sections stop just below the fixed bar — both for the eased nav
+   scroll (see lib/smooth-scroll.ts) and for native hash loads / deep links. */
+section[id] {
+  scroll-margin-top: var(--header-clearance);
 }
 
 * {
@@ -44,6 +57,11 @@
 
 html {
   scroll-behavior: auto;
+  /* `clip` (not `hidden`) contains stray horizontal overflow without turning
+     the element into a scroll container, so `position: fixed` keeps working.
+     This stops the fixed header from drifting/"cutting" when a decorative
+     element briefly overflows (Safari is the usual offender). */
+  overflow-x: clip;
 }
 
 body {
@@ -52,6 +70,7 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 ::selection {

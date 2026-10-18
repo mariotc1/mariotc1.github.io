@@ -83,12 +83,21 @@ accesibilidad.
 - **Prioridad:** Baja
 - **Motivo:** la foto actual (`assets/foto-perfil.jpeg`, 911×1099) ya está integrada y se ve bien; una versión de mayor resolución solo mejora el margen de recorte en pantallas grandes.
 
-## 7. Favicon / OG image definitivos (opcional)
+## 7. Favicon / OG image definitivos
 
-- **Formato:** PNG/SVG
-- **Ubicación:** sustituyen a `app/icon.tsx`, `app/apple-icon.tsx`, `app/opengraph-image.tsx`
-- **Prioridad:** Baja
-- **Motivo:** ahora mismo se generan automáticamente (monograma "M" en el degradado de marca) con `next/og`. Funcionan correctamente en producción; si Mario quiere un logo/isotipo propio, se sustituyen sin cambiar el resto del sitio.
+✅ **Favicon resuelto** — la foto de perfil (`foto-perfil.ico`, 212×256) es ahora
+el icono del sitio, por recorte cuadrado centrado en la cara:
+
+- `app/icon.jpg` (256×256, ~10 KB) — favicon principal.
+- `app/apple-icon.png` (180×180) — icono de iOS.
+- `app/favicon.ico` (16/32/48) — compatibilidad/heredado.
+
+Original archivado en `assets/branding/foto-perfil-original.ico`.
+
+- **OG image (pendiente, opcional):** se sigue generando con `next/og`
+  (degradado de marca, sin foto). Si Mario quiere una OG image con su foto
+  (lo que verá un reclutador al abrir el enlace en LinkedIn), se sustituye
+  `app/opengraph-image.tsx` sin cambiar el resto del sitio.
 
 ## 8. Datos de contacto reales
 

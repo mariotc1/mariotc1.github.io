@@ -110,7 +110,7 @@ export function ProjectShowcase() {
   );
 
   return (
-    <section id="work" className="scroll-mt-20 bg-background py-28 sm:py-36">
+    <section id="work" className="bg-background py-28 sm:py-36">
       <Container>
         <SectionHeading
           eyebrow="Selected Work"

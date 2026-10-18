@@ -78,14 +78,57 @@ para Motion, valores directos en GSAP):
   `public/images/projects/<slug>/cover.webp` (16:9, WebP).
 - **GSAP + ScrollTrigger** → reservado para storytelling de scroll. Hoy no
   hace pinning: solo aporta el ticker que sincroniza Lenis.
-- **Lenis** → smooth scroll global, sincronizado con el ticker de GSAP.
+- **Lenis** → smooth scroll global, sincronizado con el ticker de GSAP. Las
+  anclas internas (`#seccion`) no se dejan al navegador: `lib/smooth-scroll.ts`
+  expone el instance activo y `scrollToSection()` / `scrollToTop()` para que el
+  nav, el logotipo y los CTAs hagan un desplazamiento eased. El destino se
+  compensa con la altura real de la barra (`data-scroll-header`), así que
+  ninguna sección queda tapada, sea cual sea el viewport. El nav le pasa a
+  Lenis un **número absoluto** (no un elemento) y añade su propio margen
+  `SCROLL_GAP`; si le pasara el elemento, Lenis restaría por su cuenta el
+  `scroll-margin-top` de la sección y el ancla aterrizaría una sección antes.
+  Para que una carga directa con `#hash` (enlace compartido, o volver desde una
+  página de proyecto) aterrice igual, `globals.css` define la misma holgura en
+  CSS (`--header-clearance`) y la aplica con `section[id] { scroll-margin-top }`.
 
-**Reduced motion (brief, sección 29):** `MotionConfig reducedMotion="user"`
+### Reduced motion
+
+Reduced motion (brief, sección 29): `MotionConfig reducedMotion="user"`
 (en `SmoothScrollProvider`) neutraliza automáticamente todas las animaciones
 de Motion cuando el sistema operativo tiene activado "reducir movimiento".
 Lenis y el scrub de GSAP se desactivan explícitamente vía
 `useReducedMotion()` (media query `prefers-reduced-motion`), y el carrusel de
 proyectos pasa a salto instantáneo sin gliding, manteniéndose navegable.
+
+## Navegación
+
+El header es una **barra fija a todo el ancho** (`components/navigation/Navbar.tsx`):
+logo MTC a la izquierda, enlaces en el centro-derecha y hamburguesa en móvil
+(por debajo de `lg`, 1024 px). Es fixed y se mide a sí misma con
+`data-scroll-header` (puesto en la barra, no en el `<header>`, que también
+contiene el panel móvil). Arriba del todo es transparente sobre el Hero; al
+hacer scroll (`scrolled`) o al abrir el menú gana fondo `bg-background/90` con
+`backdrop-blur-xl` y una línea inferior de 1 px `border-white/[0.07]`, de modo
+que el contenido no se ve a través con un blur sucio.
+
+- **Orden = orden real de la página**: About → Work → Stack → Experience →
+  Contact. Nunca un orden inventado que desoriente.
+- **Scrollspy**: se resalta la sección activa (texto `accent-soft` + píldora
+  de acento) mediante un indicador que se desliza entre enlaces
+  (`layoutId="nav-active"`). Fuera de secciones (en el Hero) no hay resalte.
+  El umbral es exactamente el punto donde aterrizan las anclas
+  (`getHeaderBottom() + SCROLL_GAP + 6`), y al llegar al fondo de la página se
+  fuerza la última sección (Contact), que nunca alcanzaría el umbral.
+- **Anclas eased**: los enlaces, el logotipo (→ arriba) y los CTAs usan
+  `scrollToSection()` / `scrollToTop()` de `lib/smooth-scroll.ts`, no el salto
+  nativo del navegador.
+- **Móvil**: menú de cristal con entrada escalonada, punto de sección activa y
+  bloqueo real del scroll (Lenis se detiene, no solo `body { overflow }`). Al
+  pulsar un enlace se cierra el menú y se reanuda Lenis **de forma síncrona**
+  antes de desplazar; si no, `scrollTo` se saldría al estar Lenis parado y el
+  toque no haría nada.
+- **Safari**: `overflow-x: clip` en `html`/`body` evita que un desbordamiento
+  decorativo descoloque el `fixed`, y `-webkit-backdrop-filter` va incluido.
 
 ## Spacing y radios
 

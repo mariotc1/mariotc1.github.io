@@ -6,7 +6,7 @@ import { stackGroups } from "@/lib/stack";
 
 export function StackSection() {
   return (
-    <section id="stack" className="scroll-mt-20 bg-background-secondary py-28 sm:py-36">
+    <section id="stack" className="bg-background-secondary py-28 sm:py-36">
       <Container>
         <SectionHeading eyebrow="Stack" title="Herramientas que uso para construir" />
 
