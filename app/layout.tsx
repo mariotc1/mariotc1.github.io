@@ -3,7 +3,6 @@ import { Inter, Bricolage_Grotesque } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Navbar } from "@/components/navigation/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -104,7 +103,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SmoothScrollProvider>
           <Navbar />
           <main id="main-content">{children}</main>
-          <Footer />
         </SmoothScrollProvider>
       </body>
     </html>

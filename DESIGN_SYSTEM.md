@@ -12,7 +12,7 @@ degradado de marca real de Mario (`assets/fondo.jpg`), no inventados:
 | Token | Valor | Uso |
 |---|---|---|
 | `--color-background` | `#04070d` | Fondo base del sitio |
-| `--color-background-secondary` | `#070d1a` | Fondo de secciones alternas (Stack, Footer) |
+| `--color-background-secondary` | `#070d1a` | Fondo de secciones alternas (Stack, bloques secundarios) |
 | `--color-surface` | `#0b1424` | Tarjetas, pills, previews de proyecto |
 | `--color-surface-elevated` | `#111e33` | Superficies elevadas (hover, modales futuros) |
 | `--color-text-primary` | `#f4f6fb` | Texto principal |
@@ -171,9 +171,10 @@ que el contenido no se ve a través con un blur sucio.
   completa (`min-h-[100svh]` + `items-center`) para leerse como una vista final
   propia y que no asome la sección anterior. Sin "Dream Big" ni etiquetas: el
   gancho es el propio wordmark.
-- `layout/Footer` — deliberadamente mínimo: una sola línea con copyright y
-  ubicación. Sin redes ni marca repetida, para no restar protagonismo al CTA
-  (las redes viven ya en el CTA y en "Descubre mis redes" del About).
+- `layout/Footer` — **eliminado a propósito**. La página cierra con el CTA de
+  Contact (a vista completa) en la home y con el bloque "Next project" en las
+  fichas de proyecto, que ya son cierres fuertes; una línea extra de copyright +
+  ubicación solo repetía información del Hero/About y diluía ese final.
 - Iconografía de marcas tecnológicas: `lib/brand-icons.ts`, paths oficiales
   extraídos de Simple Icons (CC0) e incrustados como SVG propio — sin añadir
   la librería completa como dependencia de runtime. Iconografía funcional

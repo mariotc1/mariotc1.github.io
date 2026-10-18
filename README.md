@@ -41,7 +41,7 @@ app/
 
 components/
   hero/, about/, projects/, stack/, experience/, contact/   Secciones
-  navigation/, layout/    Navbar, Footer, smooth scroll provider
+  navigation/, layout/    Navbar, smooth scroll provider
   motion/                 Reveal, MagneticButton (Motion)
   ui/                     Container, AnchorLink, Button, SectionHeading, BrandIconGlyph
 

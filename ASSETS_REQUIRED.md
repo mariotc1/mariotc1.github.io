@@ -28,8 +28,8 @@ accesibilidad.
   blanco o azul claro funcionarán mejor sobre el fondo oscuro del sitio) antes
   de poder integrarlo.
 - **Siguiente prioridad:** un logotipo de **"Dream Big"** en el mismo estilo
-  — es la frase de marca que más se repite (footer + CTA final de Contact) y
-  el segundo elemento de identidad más importante después del nombre.
+  — es una de las frases de marca más reconocibles y el segundo elemento de
+  identidad más importante después del nombre.
 - **Recibidos también:** los wordmarks de los **4 títulos de proyecto**
   (`EduFinderCyL.png`, `PlanCine.png`, `XiFantasyAssistant.png`,
   `PomodoroProApp.png`), sin fondo. Procesados (recorte al trazo + altura
@@ -41,7 +41,7 @@ accesibilidad.
 - **Ubicación en el proyecto:** `public/images/wordmarks/`
 - **Dónde se usaría:** el nombre en el Hero (como acompañamiento visual del
   `<h1>` real, que se mantiene como texto por accesibilidad/SEO) y "Dream Big"
-  en Contact/Footer.
+  en el CTA final de Contact.
 - **Prioridad:** Alta (nombre, ya recibido pero con el fallo de opacidad) /
   Media ("Dream Big", pendiente de dibujar).
 
@@ -102,7 +102,7 @@ Original archivado en `assets/branding/foto-perfil-original.ico`.
 ## 8. Datos de contacto reales
 
 ✅ Resuelto — LinkedIn, email y WhatsApp ya están en `lib/site-config.ts` y
-activos en Contact/Footer/About/Experience.
+activos en Contact y About.
 
 ## 9. CV en PDF (opcional, no contemplado en el brief actual)
 
